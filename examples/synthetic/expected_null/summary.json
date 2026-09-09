@@ -1,0 +1,107 @@
+{
+  "selected_k": 1,
+  "n_isolates": 180,
+  "no_structure": true,
+  "inference_status": "skipped",
+  "p_value_structure_report": null,
+  "diagnostic_p_value_structure_exact": null,
+  "structure_detected": false,
+  "discrete_beyond_a_gradient": null,
+  "discreteness_status": null,
+  "discreteness_verdict": null,
+  "discreteness_p_value": null,
+  "continuum_bootstrap_exceedances": null,
+  "continuum_tail_probability_ci95": null,
+  "continuum_decision_resolved_at_alpha_0_05": null,
+  "continuum_latent_dimension": null,
+  "continuum_null_under_dimensioned": null,
+  "split_design_adequate": null,
+  "phenotype_n_fdr_significant": null,
+  "phenotype_partition_beats_every_single_column_rule": null,
+  "n_defining_validated": null,
+  "n_defining_descriptive": 0,
+  "fusion_n_eff_layers": 2.0,
+  "fusion_collapse": false,
+  "max_empty_stratum_ari": 0.0,
+  "lineage_concordance_excess": 0.0,
+  "lineage_concordance_z": null,
+  "lineage_attributable_share": null,
+  "lineage_attributable_share_ci95": [
+    null,
+    null
+  ],
+  "lineage_attribution_resolved_at_95ci": null,
+  "r2_lineage_out_of_sample": -0.019362131304750667,
+  "r2_partition_out_of_sample": 0.0,
+  "shapley_lineage": -0.009630823645145174,
+  "shapley_partition": 0.009731307659605493,
+  "clonal_share_all_features": -0.018674444124082083,
+  "clonal_share_all_features_detail": {
+    "kappa_adj": -0.018674444124082083,
+    "ci_low": -0.06507449837578083,
+    "ci_high": 0.011834330698434195,
+    "null_mean": -0.440333967412986,
+    "p_value": 0.9850746268656716,
+    "n": 180,
+    "n_groups": 45,
+    "support": 1.0,
+    "estimable": true
+  },
+  "baseline_comparison": {
+    "case": "not_scored",
+    "candidates": [
+      {
+        "partition": "fused_snf",
+        "mdl_gain": -0.06697721780983557,
+        "held_out_status": "skipped",
+        "held_out_p": null,
+        "reproduces": null,
+        "differs_on": {}
+      },
+      {
+        "partition": "concatenation",
+        "mdl_gain": -0.06697721780983557,
+        "held_out_status": "skipped",
+        "held_out_p": null,
+        "reproduces": null,
+        "differs_on": {}
+      },
+      {
+        "partition": "solo_amr",
+        "mdl_gain": -0.06697721780983557,
+        "held_out_status": "skipped",
+        "held_out_p": null,
+        "reproduces": null,
+        "differs_on": {}
+      },
+      {
+        "partition": "solo_vir",
+        "mdl_gain": -0.06697721780983557,
+        "held_out_status": "skipped",
+        "held_out_p": null,
+        "reproduces": null,
+        "differs_on": {}
+      },
+      {
+        "partition": "bernoulli_mixture",
+        "mdl_gain": -0.06697721780983557,
+        "held_out_status": "skipped",
+        "held_out_p": null,
+        "reproduces": null,
+        "differs_on": {}
+      }
+    ],
+    "n_tested": 0,
+    "n_reproducing": 0,
+    "reproducing_candidates": [],
+    "best_in_sample_description_length": "fused_snf",
+    "reported_reproduces": null,
+    "distinguishable": {}
+  },
+  "lineage_confounded": false,
+  "mdl_p_value": null,
+  "mdl_gain_fraction_of_null_code": -9.388026562705063e-06,
+  "claim_level": 0,
+  "claim_status": "no_structure",
+  "active_gate_codes": []
+}

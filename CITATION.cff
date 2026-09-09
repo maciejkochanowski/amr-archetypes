@@ -1,0 +1,105 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "amr-archetypes: recurring resistance profiles in a bacterial collection, and the diagnostics that decide whether they are real"
+abstract: >-
+  Clusters one or more binary genotype layers of a bacterial collection
+  (acquired antimicrobial-resistance determinants, virulence loci, capsule or
+  antigen type, plasmid replicons) by similarity-network fusion with
+  order-invariant neighbour selection and consensus clustering, selects a
+  number of groups that may be one, and reports the diagnostics that decide
+  whether the resulting partition means anything: whether the largest group
+  is the trait-absent stratum produced by the empty-union distance convention,
+  whether tied affinities make the answer depend on input row order, whether
+  the fusion collapsed onto a single layer, whether co-inherited loci inflate
+  the feature count, and whether the groups are the lineages relabelled, the
+  last measured as the lineage-attributable share of the partition by the
+  out-of-sample variance decomposition of amr-clonalshare, on which the
+  package depends. Post-clustering inference uses multi-split feature
+  splitting with a p-value merging rule valid for exchangeable, arbitrarily
+  dependent p-values, and separates "there is structure" from "that structure
+  is discrete" with a parametric bootstrap from a BIC-selected latent-trait
+  continuum model with adaptive dimension checking and exact finite-bootstrap
+  uncertainty; an exact, closed-form phylogenetic convergence test serves
+  small cohorts. Every candidate partition, the fusion, the naive
+  concatenation, each single layer and a Bernoulli mixture, is put through
+  the same held-out test, and a measured phenotype, where one is supplied, is
+  the one criterion that is not a function of what was clustered. A
+  five-level machine-readable claim ladder exposes every applicable gate and
+  prevents a partition from being promoted directly to a biological
+  archetype; a failed gate closes the run with a non-zero exit code. Ships
+  two independently seeded positive controls, negative and adversarial
+  controls, and documented Klebsiella pneumoniae and Streptococcus suis case
+  studies in which statistical discreteness and biological interpretation
+  are reported separately.
+type: software
+authors:
+  - family-names: Kochanowski
+    given-names: Maciej
+    affiliation: "Department of Bacteriology and Bacterial Diseases, National Veterinary Research Institute, 57 Partyzantów Avenue, 24-100 Puławy, Poland"
+    email: "maciej.kochanowski@piwet.pulawy.pl"
+version: "1.0.0"
+license: MIT
+repository-code: "https://github.com/maciejkochanowski/amr-archetypes"
+url: "https://github.com/maciejkochanowski/amr-archetypes/tree/main/docs"
+keywords:
+  - bioinformatics
+  - antimicrobial resistance
+  - veterinary surveillance
+  - multi-view clustering
+  - similarity network fusion
+  - population structure
+  - selective inference
+  - Klebsiella pneumoniae
+  - Streptococcus suis
+references:
+  - type: article
+    authors:
+      - family-names: Wang
+        given-names: Bo
+      - family-names: Mezlini
+        given-names: Aziz M.
+      - family-names: Goldenberg
+        given-names: Anna
+    title: "Similarity network fusion for aggregating data types on a genomic scale"
+    journal: "Nature Methods"
+    volume: 11
+    year: 2014
+    doi: "10.1038/nmeth.2810"
+  - type: article
+    authors:
+      - family-names: Neufeld
+        given-names: Anna
+      - family-names: Dharamshi
+        given-names: Ameer
+      - family-names: Gao
+        given-names: Lucy L.
+      - family-names: Witten
+        given-names: Daniela
+    title: "Data thinning for convolution-closed distributions"
+    journal: "Journal of Machine Learning Research"
+    volume: 25
+    year: 2024
+  - type: article
+    authors:
+      - family-names: Gasparin
+        given-names: Matteo
+      - family-names: Wang
+        given-names: Ruodu
+      - family-names: Ramdas
+        given-names: Aaditya
+    title: "Combining exchangeable P-values"
+    journal: "Proceedings of the National Academy of Sciences"
+    volume: 122
+    year: 2025
+    doi: "10.1073/pnas.2410849122"
+  - type: article
+    authors:
+      - family-names: Lam
+        given-names: Margaret M. C.
+      - family-names: Holt
+        given-names: Kathryn E.
+    title: "A genomic surveillance framework and genotyping tool for Klebsiella pneumoniae and its related species complex"
+    journal: "Nature Communications"
+    volume: 12
+    year: 2021
+    doi: "10.1038/s41467-021-24448-3"

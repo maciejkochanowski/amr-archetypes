@@ -1,0 +1,152 @@
+{
+  "selected_k": 5,
+  "n_isolates": 677,
+  "no_structure": false,
+  "inference_status": "ok",
+  "p_value_structure_report": "p < 0.001",
+  "diagnostic_p_value_structure_exact": 5.1994971667983665e-45,
+  "structure_detected": true,
+  "discrete_beyond_a_gradient": true,
+  "discreteness_status": "ok",
+  "discreteness_verdict": "discrete",
+  "discreteness_p_value": 0.01,
+  "continuum_bootstrap_exceedances": 0,
+  "continuum_tail_probability_ci95": {
+    "method": "Clopper-Pearson exact binomial",
+    "confidence_level": 0.95,
+    "low": 0.0,
+    "high": 0.03657574498347893
+  },
+  "continuum_decision_resolved_at_alpha_0_05": true,
+  "continuum_latent_dimension": 3,
+  "continuum_null_under_dimensioned": false,
+  "split_design_adequate": true,
+  "phenotype_n_fdr_significant": null,
+  "phenotype_partition_beats_every_single_column_rule": null,
+  "n_defining_validated": 13,
+  "n_defining_descriptive": 37,
+  "fusion_n_eff_layers": 1.9998256241499237,
+  "fusion_collapse": false,
+  "max_empty_stratum_ari": 0.3084163548277803,
+  "lineage_concordance_excess": 0.1251,
+  "lineage_concordance_z": 22.180887603818483,
+  "lineage_attributable_share": 0.41070946972706024,
+  "lineage_attributable_share_ci95": [
+    null,
+    null
+  ],
+  "lineage_attribution_resolved_at_95ci": null,
+  "r2_lineage_out_of_sample": 0.24238151339260233,
+  "r2_partition_out_of_sample": 0.486722022545315,
+  "shapley_lineage": 0.1429201570826382,
+  "shapley_partition": 0.3872606662353509,
+  "clonal_share_all_features": 0.24076234924829798,
+  "clonal_share_all_features_detail": {
+    "kappa_adj": 0.24076234924829798,
+    "ci_low": 0.13308011663818042,
+    "ci_high": 0.33007620513199937,
+    "null_mean": -0.05619440353501148,
+    "p_value": 0.004975124378109453,
+    "n": 677,
+    "n_groups": 30,
+    "support": 0.9955686853766618,
+    "estimable": true
+  },
+  "baseline_comparison": {
+    "case": "admissible_among",
+    "candidates": [
+      {
+        "partition": "fused_snf",
+        "mdl_gain": 1598.8468715964182,
+        "held_out_status": "ok",
+        "held_out_p": 8.348092274676939e-22,
+        "reproduces": true,
+        "differs_on": {}
+      },
+      {
+        "partition": "concatenation",
+        "mdl_gain": 1998.1010044953018,
+        "held_out_status": "ok",
+        "held_out_p": 1.248322088174221e-20,
+        "reproduces": true,
+        "differs_on": {
+          "collection_year": -0.018817151430828363,
+          "host_name": 0.013700095464148764,
+          "isolation_country": -0.0345395142108418
+        }
+      },
+      {
+        "partition": "solo_ribo",
+        "mdl_gain": 2112.2980707512543,
+        "held_out_status": "ok",
+        "held_out_p": 2.0233431832020613e-08,
+        "reproduces": true,
+        "differs_on": {
+          "host_name": 0.009430732846325385,
+          "isolation_country": -0.018895846659535313,
+          "mlst": -0.03116308491498237
+        }
+      },
+      {
+        "partition": "solo_cell",
+        "mdl_gain": 330.0513428526938,
+        "held_out_status": "ok",
+        "held_out_p": 6.396317522261279e-29,
+        "reproduces": true,
+        "differs_on": {
+          "collection_year": -0.014199584630061747,
+          "host_name": -0.031594450083243894,
+          "isolation_country": -0.03518475785824919
+        }
+      },
+      {
+        "partition": "bernoulli_mixture",
+        "mdl_gain": 2590.400283542789,
+        "held_out_status": "ok",
+        "held_out_p": 3.825508281891802e-45,
+        "reproduces": true,
+        "differs_on": {
+          "collection_year": -0.019292255191494145,
+          "isolation_country": -0.023586227275074048
+        }
+      }
+    ],
+    "n_tested": 5,
+    "n_reproducing": 5,
+    "reproducing_candidates": [
+      "bernoulli_mixture",
+      "concatenation",
+      "solo_cell",
+      "solo_ribo"
+    ],
+    "best_in_sample_description_length": "bernoulli_mixture",
+    "reported_reproduces": true,
+    "distinguishable": {
+      "concatenation": {
+        "collection_year": -0.018817151430828363,
+        "host_name": 0.013700095464148764,
+        "isolation_country": -0.0345395142108418
+      },
+      "solo_ribo": {
+        "host_name": 0.009430732846325385,
+        "isolation_country": -0.018895846659535313,
+        "mlst": -0.03116308491498237
+      },
+      "solo_cell": {
+        "collection_year": -0.014199584630061747,
+        "host_name": -0.031594450083243894,
+        "isolation_country": -0.03518475785824919
+      },
+      "bernoulli_mixture": {
+        "collection_year": -0.019292255191494145,
+        "isolation_country": -0.023586227275074048
+      }
+    }
+  },
+  "lineage_confounded": false,
+  "mdl_p_value": null,
+  "mdl_gain_fraction_of_null_code": 0.24944406785848924,
+  "claim_level": 4,
+  "claim_status": "archetype_candidate",
+  "active_gate_codes": []
+}

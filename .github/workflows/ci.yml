@@ -1,0 +1,139 @@
+# CI for amr-archetypes.
+#
+# The contract this workflow enforces is deliberately NOT byte-identity of the
+# outputs. A floating-point spectral pipeline does not reproduce bit-for-bit
+# across BLAS and scikit-learn builds, and the previous workflow's `diff` gate
+# could never be green. What is enforced instead is the set of properties the
+# scientific claims actually rest on:
+#
+#   * the fast test suite passes on 3.11-3.13;
+#   * the pipeline is equivariant under input row order (a property, not a hash);
+#   * the negative control returns "no clusters" and the positive control
+#     recovers the planted truth;
+#   * cluster_result.json is valid RFC 8259 JSON that a non-Python parser reads;
+#   * no module imports a sibling tool package (checked by AST, not by grep, so
+#     a docstring mention cannot trip it);
+#   * the Monte-Carlo calibration study runs and its type-I estimates hold.
+
+name: CI
+
+on:
+  push: { branches: [main] }
+  pull_request: { branches: [main] }
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: test (py${{ matrix.python }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.11', '3.12', '3.13']
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev,phylo]"
+      - name: Dead code, unused arguments, undefined names
+        run: ruff check .
+      - name: The annotations are checked, not decorative
+        # NumPy's stubs use the `type` statement, which mypy reads only when
+        # it runs on 3.12 or later; one job is enough, the annotations do
+        # not change with the interpreter.
+        if: matrix.python == '3.12'
+        run: mypy
+      - name: Fast test suite with coverage
+        run: pytest -m "not slow" -q --cov=src/amr_archetypes --cov-report=term-missing --cov-report=json:coverage.json
+      - name: Coverage floors, per module
+        run: python scripts/check_coverage_floors.py coverage.json
+      - name: Import isolation (AST, not grep)
+        run: python scripts/check_isolation.py
+      - name: Quoted digests still match the files they name
+        run: python scripts/check_cited_hashes.py
+      - name: Controls behave as controls
+        run: |
+          python examples/synthetic/make_data.py
+          python scripts/check_controls.py
+      - name: Output contract
+        run: |
+          python - <<'PY'
+          import json, math
+          d = json.load(open('/tmp/ci_planted/cluster_result.json'))
+          assert d['schema_version'] == '1.0'
+          for key in ('selected_k','k_selection','layer_reports','artifact_diagnostics',
+                      'layer_influence','baselines','post_clustering_inference','config'):
+              assert key in d, key
+          text = open('/tmp/ci_planted/cluster_result.json').read()
+          assert 'NaN' not in text and 'Infinity' not in text
+          print('output contract OK')
+          PY
+      - name: Strict JSON parse from a non-Python parser
+        run: node -e "JSON.parse(require('fs').readFileSync('/tmp/ci_planted/cluster_result.json','utf8')); console.log('node JSON.parse OK')"
+
+  docs:
+    name: documentation builds strictly
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with: { python-version: '3.12' }
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[docs]"
+      - name: Every page, link and docstring reference resolves
+        run: mkdocs build --strict
+
+  calibration:
+    name: Monte-Carlo calibration
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with: { python-version: '3.12' }
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev,phylo]"
+      - name: Slow tests (calibration)
+        run: pytest -m slow -q
+      - name: Calibration study (quick)
+        run: python benchmarks/calibration_study.py --quick --out /tmp/calib
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: calibration
+          path: /tmp/calib
+
+  container:
+    name: container reproduces the controls
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Build the pinned image
+        run: docker build -t amr-archetypes:1.0.0 .
+      - name: The entry point answers
+        run: docker run --rm amr-archetypes:1.0.0 --version
+      - name: Input check on the planted control
+        run: docker run --rm amr-archetypes:1.0.0 --config examples/synthetic/planted.yaml --check-input
+      - name: Positive and negative controls inside the image
+        run: |
+          mkdir -p /tmp/ctr && chmod 777 /tmp/ctr
+          docker run --rm -v /tmp/ctr:/out amr-archetypes:1.0.0 --config examples/synthetic/planted.yaml --results-dir /out/planted --quiet --threads 1
+          docker run --rm -v /tmp/ctr:/out amr-archetypes:1.0.0 --config examples/synthetic/null.yaml --results-dir /out/null --quiet --threads 1
+          python3 - <<'PY'
+          import json
+          p = json.load(open('/tmp/ctr/planted/summary.json'))
+          n = json.load(open('/tmp/ctr/null/summary.json'))
+          assert p['selected_k'] == 3, p['selected_k']
+          assert n['selected_k'] == 1, n['selected_k']
+          assert open('/tmp/ctr/planted/report.md').read().startswith('# amr-archetypes run report')
+          print('container controls OK: planted k=3, null k=1')
+          PY

@@ -1,0 +1,61 @@
+{
+  "title": "amr-archetypes: recurring resistance profiles in a bacterial collection, and the diagnostics that decide whether they are real",
+  "version": "1.0.0",
+  "upload_type": "software",
+  "license": "MIT",
+  "description": "<p>Python package and command-line tool that clusters one or more binary genotype layers of a bacterial collection (acquired antimicrobial-resistance determinants, virulence loci, capsule or antigen type, plasmid replicons) by similarity-network fusion with order-invariant neighbour selection and consensus clustering, selects a number of groups that may be one, and reports the diagnostics that decide whether the resulting partition means anything: whether the largest group is the trait-absent stratum produced by the empty-union distance convention, whether tied affinities make the answer depend on input row order, whether the fusion collapsed onto a single layer, whether co-inherited loci inflate the feature count, and whether the groups are the lineages relabelled, the last measured as the lineage-attributable share of the partition by the out-of-sample variance decomposition of <em>amr-clonalshare</em>, on which the package depends.</p><p>Post-clustering inference uses multi-split feature splitting with a p-value merging rule valid for exchangeable, arbitrarily dependent p-values, and separates \"there is structure\" from \"that structure is discrete\" with a parametric bootstrap from a BIC-selected latent-trait continuum model with adaptive dimension checking and exact finite-bootstrap uncertainty; an exact, closed-form phylogenetic convergence test serves small cohorts. Every candidate partition, the fusion, the naive concatenation, each single layer and a Bernoulli mixture, is put through the same held-out test, and a measured phenotype, where one is supplied, is the one criterion that is not a function of what was clustered. A five-level machine-readable claim ladder exposes every applicable gate and prevents a partition from being promoted directly to a biological archetype; a failed gate closes the run with a non-zero exit code.</p><p>Ships two independently seeded positive controls, a negative and an adversarial control, a <em>Klebsiella pneumoniae</em> case study (1,500 genomes, acquired resistance determinants and virulence loci, sequence type as the lineage, a measured susceptibility panel as the external criterion) and a <em>Streptococcus suis</em> case study (677 isolates, thirteen antimicrobials in two layers, population cluster as the lineage, with full data provenance).</p>",
+  "creators": [
+    {
+      "name": "Kochanowski, Maciej",
+      "affiliation": "Department of Bacteriology and Bacterial Diseases, National Veterinary Research Institute, 57 Partyzantów Avenue, 24-100 Puławy, Poland"
+    }
+  ],
+  "keywords": [
+    "bioinformatics",
+    "antimicrobial resistance",
+    "veterinary surveillance",
+    "multi-view clustering",
+    "similarity network fusion",
+    "consensus clustering",
+    "population structure",
+    "selective inference",
+    "reproducible research",
+    "Klebsiella pneumoniae",
+    "Streptococcus suis"
+  ],
+  "language": "eng",
+  "access_right": "open",
+  "related_identifiers": [
+    {
+      "identifier": "10.1186/s12915-021-01094-1",
+      "relation": "isDerivedFrom",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.1038/s41467-021-24448-3",
+      "relation": "isDerivedFrom",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.1093/nar/gkac1003",
+      "relation": "isDerivedFrom",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "https://github.com/maciejkochanowski/amr-archetypes",
+      "relation": "isSupplementTo",
+      "resource_type": "software",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://github.com/maciejkochanowski/amr-clonalshare",
+      "relation": "requires",
+      "resource_type": "software",
+      "scheme": "url"
+    }
+  ],
+  "notes": "The Klebsiella pneumoniae example data derive from Lam et al. 2021, Nature Communications 12:4188, under CC BY 4.0; the Streptococcus suis example data derive from Hadjirin et al. 2021, BMC Biology 19:191, under CC BY 4.0. Retrieval, epidemiological cut-off derivation, metadata repairs and the population-cluster join are documented and reproducible in the DATA_PROVENANCE.md of each example."
+}

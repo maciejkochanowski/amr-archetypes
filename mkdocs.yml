@@ -1,0 +1,52 @@
+site_name: amr-archetypes
+site_description: Recurring resistance profiles in a bacterial collection, and the diagnostics that decide whether they are real
+docs_dir: docs
+site_dir: site
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: teal
+      toggle:
+        icon: material/brightness-7
+        name: Dark mode
+    - scheme: slate
+      primary: teal
+      toggle:
+        icon: material/brightness-4
+        name: Light mode
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: numpy
+            show_source: false
+            show_root_heading: true
+            members_order: source
+            filters: ["!^_"]
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+nav:
+  - Home: index.md
+  - User manual:
+      - 1. Install: manual/01-install.md
+      - 2. Prepare the input: manual/02-input.md
+      - 3. Check the input: manual/03-check-input.md
+      - 4. Run: manual/04-run.md
+      - 5. Read the results: manual/05-results.md
+      - 6. Container and reproducibility: manual/06-container.md
+      - 7. Exit codes and troubleshooting: manual/07-troubleshooting.md
+  - Methods: methodology.md
+  - API reference: api.md
+  - Code metadata: CODE_METADATA.md

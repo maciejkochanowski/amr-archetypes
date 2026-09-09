@@ -1,0 +1,155 @@
+{
+  "selected_k": 2,
+  "n_isolates": 1500,
+  "no_structure": false,
+  "inference_status": "ok",
+  "p_value_structure_report": "p < 1e-100 across all checked split orderings",
+  "diagnostic_p_value_structure_exact": 1.3978130041463598e-193,
+  "structure_detected": true,
+  "discrete_beyond_a_gradient": true,
+  "discreteness_status": "ok",
+  "discreteness_verdict": "discrete",
+  "discreteness_p_value": 0.01,
+  "continuum_bootstrap_exceedances": 0,
+  "continuum_tail_probability_ci95": {
+    "method": "Clopper-Pearson exact binomial",
+    "confidence_level": 0.95,
+    "low": 0.0,
+    "high": 0.03657574498347893
+  },
+  "continuum_decision_resolved_at_alpha_0_05": true,
+  "continuum_latent_dimension": 3,
+  "continuum_null_under_dimensioned": false,
+  "split_design_adequate": true,
+  "phenotype_n_fdr_significant": 12,
+  "phenotype_partition_beats_every_single_column_rule": false,
+  "n_defining_validated": 17,
+  "n_defining_descriptive": 22,
+  "fusion_n_eff_layers": 1.7893160074349297,
+  "fusion_collapse": false,
+  "max_empty_stratum_ari": 0.6328112682300324,
+  "lineage_concordance_excess": 0.1776,
+  "lineage_concordance_z": 14.0029718182725,
+  "lineage_attributable_share": 0.47405282667776627,
+  "lineage_attributable_share_ci95": [
+    null,
+    null
+  ],
+  "lineage_attribution_resolved_at_95ci": null,
+  "r2_lineage_out_of_sample": 0.3017265320434324,
+  "r2_partition_out_of_sample": 0.2936199371895956,
+  "shapley_lineage": 0.2323660269124296,
+  "shapley_partition": 0.22425943205859275,
+  "clonal_share_all_features": 0.2986621808785872,
+  "clonal_share_all_features_detail": {
+    "kappa_adj": 0.2986621808785872,
+    "ci_low": 0.2612017960437009,
+    "ci_high": 0.34243808401218345,
+    "null_mean": -0.33959780429097447,
+    "p_value": 0.004975124378109453,
+    "n": 1500,
+    "n_groups": 768,
+    "support": 0.6873333333333334,
+    "estimable": false
+  },
+  "baseline_comparison": {
+    "case": "admissible_among",
+    "candidates": [
+      {
+        "partition": "fused_snf",
+        "mdl_gain": 2659.6827739902783,
+        "held_out_status": "ok",
+        "held_out_p": 1.1627578458502612e-141,
+        "reproduces": true,
+        "differs_on": {}
+      },
+      {
+        "partition": "concatenation",
+        "mdl_gain": 1921.1057992389742,
+        "held_out_status": "ok",
+        "held_out_p": 1.9402470532282533e-118,
+        "reproduces": true,
+        "differs_on": {
+          "Convergence_event": -0.033185840707964605,
+          "resistance_score": -0.12802914035584903,
+          "virulence_score": -0.11396389414515357
+        }
+      },
+      {
+        "partition": "solo_amr",
+        "mdl_gain": 3881.0430279121647,
+        "held_out_status": "ok",
+        "held_out_p": 5.814081648260254e-225,
+        "reproduces": true,
+        "differs_on": {
+          "Convergence_event": -0.033185840707964605,
+          "resistance_score": 0.13584203780746237,
+          "virulence_score": -0.027646610486676035
+        }
+      },
+      {
+        "partition": "solo_vir",
+        "mdl_gain": 281.42425329683465,
+        "held_out_status": "ok",
+        "held_out_p": 1.0514620778508395e-25,
+        "reproduces": true,
+        "differs_on": {
+          "Convergence_event": -0.033185840707964605,
+          "resistance_score": -0.10549510137589818,
+          "virulence_score": 0.8375299379190833
+        }
+      },
+      {
+        "partition": "bernoulli_mixture",
+        "mdl_gain": 4674.673502897693,
+        "held_out_status": "ok",
+        "held_out_p": 3.140540744770473e-217,
+        "reproduces": true,
+        "differs_on": {
+          "resistance_score": 0.24320903894249693,
+          "virulence_score": -0.03482392743533501
+        }
+      }
+    ],
+    "n_tested": 5,
+    "n_reproducing": 5,
+    "reproducing_candidates": [
+      "bernoulli_mixture",
+      "concatenation",
+      "solo_amr",
+      "solo_vir"
+    ],
+    "best_in_sample_description_length": "bernoulli_mixture",
+    "reported_reproduces": true,
+    "distinguishable": {
+      "concatenation": {
+        "Convergence_event": -0.033185840707964605,
+        "resistance_score": -0.12802914035584903,
+        "virulence_score": -0.11396389414515357
+      },
+      "solo_amr": {
+        "Convergence_event": -0.033185840707964605,
+        "resistance_score": 0.13584203780746237,
+        "virulence_score": -0.027646610486676035
+      },
+      "solo_vir": {
+        "Convergence_event": -0.033185840707964605,
+        "resistance_score": -0.10549510137589818,
+        "virulence_score": 0.8375299379190833
+      },
+      "bernoulli_mixture": {
+        "resistance_score": 0.24320903894249693,
+        "virulence_score": -0.03482392743533501
+      }
+    }
+  },
+  "lineage_confounded": false,
+  "mdl_p_value": null,
+  "mdl_gain_fraction_of_null_code": 0.14891050144447857,
+  "claim_level": 3,
+  "claim_status": "statistically_discrete_partition",
+  "active_gate_codes": [
+    "empty_stratum",
+    "phenotype_superiority"
+  ]
+}

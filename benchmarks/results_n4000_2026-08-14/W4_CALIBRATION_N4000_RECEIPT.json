@@ -1,0 +1,56 @@
+{
+  "artefact": "campaign receipt",
+  "campaign": "W4 calibration: experiments B and G recomputed from n_sim=120 to n_sim=4000",
+  "date": "2026-08-14",
+  "purpose": "Binds the three result files in this directory to the generator that produced them, the seeds recorded in that generator, the reading rule fixed before the run, and the reproduction gate the run had to pass.",
+  "reading_rule": "Fixed in writing before the run and not changed after the result was seen: two-sided Clopper-Pearson 95 % interval computed from the beta distribution, lo = Beta.ppf(0.025, x, n - x + 1) and 0 when x = 0, hi = Beta.ppf(0.975, x + 1, n - x) and 1 when x = n; a cell holds the level when its upper limit does not exceed 0.05.",
+  "generator": {
+    "path": "benchmarks/calibration_study.py",
+    "sha256": "729d3a2707f27e559f38de440c628faaf047d3281f9c4608bffe1bafa0d3fb68",
+    "modified": false,
+    "invocation": "exp_b_feature_split and exp_g_block_threshold imported and called with a different n_sim; main() untouched"
+  },
+  "reproduction_gate": "PASS: exp_b_feature_split(120) reproduces all 12 values in benchmarks/results/calibration.json bit for bit",
+  "decisive_cell": "typeI_independent_features.block_aware_split",
+  "decisive_result": {
+    "numerator": 100,
+    "denominator": 4000,
+    "point": 0.025,
+    "raw_rate": 0.025,
+    "cp95_lower": 0.02038619798299893,
+    "cp95_upper": 0.030324144021519346,
+    "cp95_upper_exceeds_0.05": false
+  },
+  "verdict": "The upper limit of the decisive cell is 0.0303, which does not exceed 0.05, so the level claim stands.",
+  "environment": {
+    "python": "3.11.5",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "sklearn": "1.9.0",
+    "threads": "OMP/OPENBLAS/MKL/NUMEXPR/VECLIB = 1",
+    "host_cores": 20
+  },
+  "git_rev": "56439d55c383fcda7e1a6188ff0c2ddc09921204",
+  "core_hours_forecast_before_run": 0.805,
+  "core_hours_used": 0.8153,
+  "aborted_run": {
+    "reason": "the first start was multi-threaded: numpy was imported before calibration_study, so the module's OMP_NUM_THREADS=1 took effect too late, and KMeans on a 200x15 matrix loses time to threads. Killed after 35 minutes; results discarded and not written.",
+    "results_used": false
+  },
+  "shipped_calibration_json_overwritten": false,
+  "known_caveat": "exp_g_block_threshold creates one RNG stream before the loop over thresholds, so the result for a threshold depends on the composition of the threshold tuple. The run (0.0,0.5,0.7,0.85) does not reproduce the draws of the run (0.0,0.3,0.5,0.7,0.9). Recorded before the run, not repaired in this campaign.",
+  "not_produced_by_this_generator": [
+    "Table 2b, column 'power (planted, overlap 0.05)'. exp_g_block_threshold does not compute power; it returns type_I_at_0.05, mean_n_split_units, mean_max_abs_corr_between_units and n_usable. No other quantity was substituted for it."
+  ],
+  "outputs": {
+    "A_merging_rules_cp95.json": {
+      "sha256": "d0632a7f16eaad5509f1433af8be23254ef8f3ccb754d28100ea636d4bf9d630"
+    },
+    "B_feature_splitting_n4000.json": {
+      "sha256": "5619b6738257059201ca1d956d16c5da6335b93343d924da5a8e0ac45169e9fa"
+    },
+    "G_block_threshold_n4000.json": {
+      "sha256": "9953206d01a2d27ef4878d26a8b34fedfd9f653ba92bd9bb5b6ec6f2cc60f475"
+    }
+  }
+}
