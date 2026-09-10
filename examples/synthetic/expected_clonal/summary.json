@@ -1,0 +1,128 @@
+{
+  "selected_k": 6,
+  "n_isolates": 200,
+  "no_structure": false,
+  "inference_status": "ok",
+  "p_value_structure_report": "p < 0.001 across all 50 checked split orderings",
+  "diagnostic_p_value_structure_exact": 1.0080421503076936e-14,
+  "structure_detected": true,
+  "discrete_beyond_a_gradient": true,
+  "discreteness_status": "ok",
+  "discreteness_verdict": "discrete",
+  "discreteness_p_value": 0.01,
+  "continuum_bootstrap_exceedances": 0,
+  "continuum_tail_probability_ci95": {
+    "method": "Clopper-Pearson exact binomial",
+    "confidence_level": 0.95,
+    "low": 0.0,
+    "high": 0.03657574498347893
+  },
+  "continuum_decision_resolved_at_alpha_0_05": true,
+  "continuum_latent_dimension": 3,
+  "continuum_null_under_dimensioned": false,
+  "split_design_adequate": true,
+  "phenotype_n_fdr_significant": null,
+  "phenotype_partition_beats_every_single_column_rule": null,
+  "n_defining_validated": 26,
+  "n_defining_descriptive": 51,
+  "fusion_n_eff_layers": 1.8692511567427974,
+  "fusion_collapse": false,
+  "max_empty_stratum_ari": 0.011555943346455095,
+  "lineage_concordance_excess": 0.597,
+  "lineage_concordance_z": 26.068908259912995,
+  "lineage_attributable_share": 0.9871923893652408,
+  "lineage_attributable_share_ci95": [
+    null,
+    null
+  ],
+  "lineage_attribution_resolved_at_95ci": null,
+  "r2_lineage_out_of_sample": 0.7417374878474383,
+  "r2_partition_out_of_sample": 0.6965536062521843,
+  "shapley_lineage": 0.3979210204202125,
+  "shapley_partition": 0.35273713882495844,
+  "clonal_share_all_features": 0.7422753718591539,
+  "clonal_share_all_features_detail": {
+    "kappa_adj": 0.7422753718591539,
+    "ci_low": 0.43815406347360863,
+    "ci_high": 0.7919699006790925,
+    "null_mean": -0.06511464897501323,
+    "p_value": 0.004975124378109453,
+    "n": 200,
+    "n_groups": 16,
+    "support": 0.965,
+    "estimable": true
+  },
+  "baseline_comparison": {
+    "case": "admissible_among",
+    "candidates": [
+      {
+        "partition": "fused_snf",
+        "mdl_gain": 1957.9712118337861,
+        "held_out_status": "ok",
+        "held_out_p": 7.403345470089609e-23,
+        "reproduces": true,
+        "differs_on": {}
+      },
+      {
+        "partition": "concatenation",
+        "mdl_gain": 1985.450412096969,
+        "held_out_status": "ok",
+        "held_out_p": 7.403345470089609e-23,
+        "reproduces": true,
+        "differs_on": {}
+      },
+      {
+        "partition": "solo_amr",
+        "mdl_gain": 1934.8183910843145,
+        "held_out_status": "ok",
+        "held_out_p": 2.9217720484981966e-18,
+        "reproduces": true,
+        "differs_on": {}
+      },
+      {
+        "partition": "solo_vir",
+        "mdl_gain": 1941.3288140176828,
+        "held_out_status": "ok",
+        "held_out_p": 7.116913151256361e-09,
+        "reproduces": true,
+        "differs_on": {}
+      },
+      {
+        "partition": "bernoulli_mixture",
+        "mdl_gain": 1974.1879300861083,
+        "held_out_status": "ok",
+        "held_out_p": 2.7021465052054816e-13,
+        "reproduces": true,
+        "differs_on": {
+          "lineage": -0.31416205410063325
+        }
+      }
+    ],
+    "n_tested": 5,
+    "n_reproducing": 5,
+    "reproducing_candidates": [
+      "bernoulli_mixture",
+      "concatenation",
+      "solo_amr",
+      "solo_vir"
+    ],
+    "best_in_sample_description_length": "concatenation",
+    "reported_reproduces": true,
+    "distinguishable": {
+      "bernoulli_mixture": {
+        "lineage": -0.31416205410063325
+      }
+    }
+  },
+  "k_at_sweep_boundary": false,
+  "lineage_attribution_support": 0.965,
+  "lineage_attribution_estimable": true,
+  "lineage_confounded": true,
+  "mdl_p_value": null,
+  "mdl_gain_fraction_of_null_code": 0.43757359480054037,
+  "claim_level": 3,
+  "claim_status": "statistically_discrete_partition",
+  "active_gate_codes": [
+    "lineage_confounding"
+  ]
+}

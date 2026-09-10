@@ -1,0 +1,555 @@
+{
+  "missing": {
+    "policy": "refuse",
+    "layers": {
+      "amr": {
+        "cells": 0,
+        "share": 0.0,
+        "rows_with_missing": 0,
+        "columns_with_missing": 0,
+        "example_rows": [],
+        "example_columns": []
+      },
+      "vir": {
+        "cells": 0,
+        "share": 0.0,
+        "rows_with_missing": 0,
+        "columns_with_missing": 0,
+        "example_rows": [],
+        "example_columns": []
+      }
+    },
+    "dropped_rows": [],
+    "dropped_columns": {}
+  },
+  "layers": {
+    "amr": {
+      "n_isolates": 240,
+      "n_features": 24,
+      "non_binary_values": {},
+      "traits": {
+        "amr_00": {
+          "n": 240,
+          "prevalence": 0.39166666666666666,
+          "minor_count": 94,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_01": {
+          "n": 240,
+          "prevalence": 0.36666666666666664,
+          "minor_count": 88,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_02": {
+          "n": 240,
+          "prevalence": 0.37083333333333335,
+          "minor_count": 89,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_03": {
+          "n": 240,
+          "prevalence": 0.35,
+          "minor_count": 84,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_04": {
+          "n": 240,
+          "prevalence": 0.37916666666666665,
+          "minor_count": 91,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_05": {
+          "n": 240,
+          "prevalence": 0.32916666666666666,
+          "minor_count": 79,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_06": {
+          "n": 240,
+          "prevalence": 0.36666666666666664,
+          "minor_count": 88,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_07": {
+          "n": 240,
+          "prevalence": 0.39166666666666666,
+          "minor_count": 94,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_08": {
+          "n": 240,
+          "prevalence": 0.4041666666666667,
+          "minor_count": 97,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_09": {
+          "n": 240,
+          "prevalence": 0.35833333333333334,
+          "minor_count": 86,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_10": {
+          "n": 240,
+          "prevalence": 0.3541666666666667,
+          "minor_count": 85,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_11": {
+          "n": 240,
+          "prevalence": 0.36666666666666664,
+          "minor_count": 88,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_12": {
+          "n": 240,
+          "prevalence": 0.37083333333333335,
+          "minor_count": 89,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_13": {
+          "n": 240,
+          "prevalence": 0.375,
+          "minor_count": 90,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_14": {
+          "n": 240,
+          "prevalence": 0.38333333333333336,
+          "minor_count": 92,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_15": {
+          "n": 240,
+          "prevalence": 0.3541666666666667,
+          "minor_count": 85,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_16": {
+          "n": 240,
+          "prevalence": 0.36666666666666664,
+          "minor_count": 88,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_17": {
+          "n": 240,
+          "prevalence": 0.375,
+          "minor_count": 90,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_18": {
+          "n": 240,
+          "prevalence": 0.3958333333333333,
+          "minor_count": 95,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_19": {
+          "n": 240,
+          "prevalence": 0.3458333333333333,
+          "minor_count": 83,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_20": {
+          "n": 240,
+          "prevalence": 0.39166666666666666,
+          "minor_count": 94,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_21": {
+          "n": 240,
+          "prevalence": 0.35833333333333334,
+          "minor_count": 86,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_22": {
+          "n": 240,
+          "prevalence": 0.35833333333333334,
+          "minor_count": 86,
+          "constant": false,
+          "adequate": true
+        },
+        "amr_23": {
+          "n": 240,
+          "prevalence": 0.38333333333333336,
+          "minor_count": 92,
+          "constant": false,
+          "adequate": true
+        }
+      }
+    },
+    "vir": {
+      "n_isolates": 240,
+      "n_features": 36,
+      "non_binary_values": {},
+      "traits": {
+        "vir_00": {
+          "n": 240,
+          "prevalence": 0.3625,
+          "minor_count": 87,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_01": {
+          "n": 240,
+          "prevalence": 0.3541666666666667,
+          "minor_count": 85,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_02": {
+          "n": 240,
+          "prevalence": 0.38333333333333336,
+          "minor_count": 92,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_03": {
+          "n": 240,
+          "prevalence": 0.3625,
+          "minor_count": 87,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_04": {
+          "n": 240,
+          "prevalence": 0.3875,
+          "minor_count": 93,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_05": {
+          "n": 240,
+          "prevalence": 0.37083333333333335,
+          "minor_count": 89,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_06": {
+          "n": 240,
+          "prevalence": 0.3625,
+          "minor_count": 87,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_07": {
+          "n": 240,
+          "prevalence": 0.38333333333333336,
+          "minor_count": 92,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_08": {
+          "n": 240,
+          "prevalence": 0.35833333333333334,
+          "minor_count": 86,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_09": {
+          "n": 240,
+          "prevalence": 0.3458333333333333,
+          "minor_count": 83,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_10": {
+          "n": 240,
+          "prevalence": 0.3625,
+          "minor_count": 87,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_11": {
+          "n": 240,
+          "prevalence": 0.37083333333333335,
+          "minor_count": 89,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_12": {
+          "n": 240,
+          "prevalence": 0.4,
+          "minor_count": 96,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_13": {
+          "n": 240,
+          "prevalence": 0.35833333333333334,
+          "minor_count": 86,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_14": {
+          "n": 240,
+          "prevalence": 0.375,
+          "minor_count": 90,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_15": {
+          "n": 240,
+          "prevalence": 0.37916666666666665,
+          "minor_count": 91,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_16": {
+          "n": 240,
+          "prevalence": 0.3541666666666667,
+          "minor_count": 85,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_17": {
+          "n": 240,
+          "prevalence": 0.37083333333333335,
+          "minor_count": 89,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_18": {
+          "n": 240,
+          "prevalence": 0.35,
+          "minor_count": 84,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_19": {
+          "n": 240,
+          "prevalence": 0.4041666666666667,
+          "minor_count": 97,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_20": {
+          "n": 240,
+          "prevalence": 0.3333333333333333,
+          "minor_count": 80,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_21": {
+          "n": 240,
+          "prevalence": 0.38333333333333336,
+          "minor_count": 92,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_22": {
+          "n": 240,
+          "prevalence": 0.38333333333333336,
+          "minor_count": 92,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_23": {
+          "n": 240,
+          "prevalence": 0.3958333333333333,
+          "minor_count": 95,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_24": {
+          "n": 240,
+          "prevalence": 0.4,
+          "minor_count": 96,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_25": {
+          "n": 240,
+          "prevalence": 0.4083333333333333,
+          "minor_count": 98,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_26": {
+          "n": 240,
+          "prevalence": 0.3625,
+          "minor_count": 87,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_27": {
+          "n": 240,
+          "prevalence": 0.3625,
+          "minor_count": 87,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_28": {
+          "n": 240,
+          "prevalence": 0.38333333333333336,
+          "minor_count": 92,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_29": {
+          "n": 240,
+          "prevalence": 0.3458333333333333,
+          "minor_count": 83,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_30": {
+          "n": 240,
+          "prevalence": 0.37083333333333335,
+          "minor_count": 89,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_31": {
+          "n": 240,
+          "prevalence": 0.36666666666666664,
+          "minor_count": 88,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_32": {
+          "n": 240,
+          "prevalence": 0.4083333333333333,
+          "minor_count": 98,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_33": {
+          "n": 240,
+          "prevalence": 0.37083333333333335,
+          "minor_count": 89,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_34": {
+          "n": 240,
+          "prevalence": 0.39166666666666666,
+          "minor_count": 94,
+          "constant": false,
+          "adequate": true
+        },
+        "vir_35": {
+          "n": 240,
+          "prevalence": 0.3458333333333333,
+          "minor_count": 83,
+          "constant": false,
+          "adequate": true
+        }
+      }
+    }
+  },
+  "n_isolates_aligned": 240,
+  "min_minor_count": 20,
+  "min_group_size": 2,
+  "metadata_join": {
+    "n_joined": 240,
+    "share_joined": 1.0,
+    "unjoined_examples": []
+  },
+  "lineage": {
+    "column": "lineage",
+    "n": 240,
+    "n_untyped": 0,
+    "n_groups": 60,
+    "n_singletons": 0,
+    "n_informative_groups": 60,
+    "support": 1.0,
+    "support_threshold": 0.9,
+    "estimable": true,
+    "effective_group_size": 4.0,
+    "group_sizes": {
+      "L000": 4,
+      "L001": 4,
+      "L002": 4,
+      "L003": 4,
+      "L004": 4,
+      "L005": 4,
+      "L006": 4,
+      "L007": 4,
+      "L008": 4,
+      "L009": 4,
+      "L010": 4,
+      "L011": 4,
+      "L012": 4,
+      "L013": 4,
+      "L014": 4,
+      "L015": 4,
+      "L016": 4,
+      "L017": 4,
+      "L018": 4,
+      "L019": 4,
+      "L020": 4,
+      "L021": 4,
+      "L022": 4,
+      "L023": 4,
+      "L024": 4,
+      "L025": 4,
+      "L026": 4,
+      "L027": 4,
+      "L028": 4,
+      "L029": 4,
+      "L030": 4,
+      "L031": 4,
+      "L032": 4,
+      "L033": 4,
+      "L034": 4,
+      "L035": 4,
+      "L036": 4,
+      "L037": 4,
+      "L038": 4,
+      "L039": 4,
+      "L040": 4,
+      "L041": 4,
+      "L042": 4,
+      "L043": 4,
+      "L044": 4,
+      "L045": 4,
+      "L046": 4,
+      "L047": 4,
+      "L048": 4,
+      "L049": 4,
+      "L050": 4,
+      "L051": 4,
+      "L052": 4,
+      "L053": 4,
+      "L054": 4,
+      "L055": 4,
+      "L056": 4,
+      "L057": 4,
+      "L058": 4,
+      "L059": 4
+    },
+    "smallest_groups": {
+      "L000": 4,
+      "L001": 4,
+      "L002": 4,
+      "L003": 4,
+      "L004": 4,
+      "L005": 4,
+      "L006": 4,
+      "L007": 4,
+      "L008": 4,
+      "L009": 4
+    }
+  }
+}

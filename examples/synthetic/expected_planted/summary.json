@@ -1,0 +1,120 @@
+{
+  "selected_k": 3,
+  "n_isolates": 240,
+  "no_structure": false,
+  "inference_status": "ok",
+  "p_value_structure_report": "p < 0.001 across all 50 checked split orderings",
+  "diagnostic_p_value_structure_exact": 3.2908824728699078e-40,
+  "structure_detected": true,
+  "discrete_beyond_a_gradient": true,
+  "discreteness_status": "ok",
+  "discreteness_verdict": "discrete",
+  "discreteness_p_value": 0.01,
+  "continuum_bootstrap_exceedances": 0,
+  "continuum_tail_probability_ci95": {
+    "method": "Clopper-Pearson exact binomial",
+    "confidence_level": 0.95,
+    "low": 0.0,
+    "high": 0.03657574498347893
+  },
+  "continuum_decision_resolved_at_alpha_0_05": true,
+  "continuum_latent_dimension": 2,
+  "continuum_null_under_dimensioned": false,
+  "split_design_adequate": true,
+  "phenotype_n_fdr_significant": null,
+  "phenotype_partition_beats_every_single_column_rule": null,
+  "n_defining_validated": 60,
+  "n_defining_descriptive": 179,
+  "fusion_n_eff_layers": 2.0,
+  "fusion_collapse": false,
+  "max_empty_stratum_ari": 0.0,
+  "lineage_concordance_excess": 0.0311,
+  "lineage_concordance_z": 1.2219673417042598,
+  "lineage_attributable_share": 0.03520448713604141,
+  "lineage_attributable_share_ci95": [
+    null,
+    null
+  ],
+  "lineage_attribution_resolved_at_95ci": null,
+  "r2_lineage_out_of_sample": 0.01887626979204299,
+  "r2_partition_out_of_sample": 0.6268807202333928,
+  "shapley_lineage": 0.009736164993985656,
+  "shapley_partition": 0.6177406154353355,
+  "clonal_share_all_features": 0.02215202093846682,
+  "clonal_share_all_features_detail": {
+    "kappa_adj": 0.02215202093846682,
+    "ci_low": -0.05366509579874705,
+    "ci_high": 0.07853693025532765,
+    "null_mean": -0.4422270132953312,
+    "p_value": 0.26865671641791045,
+    "n": 240,
+    "n_groups": 60,
+    "support": 1.0,
+    "estimable": true
+  },
+  "baseline_comparison": {
+    "case": "admissible_among",
+    "candidates": [
+      {
+        "partition": "fused_snf",
+        "mdl_gain": 6499.534493414958,
+        "held_out_status": "ok",
+        "held_out_p": 4.198712120558158e-40,
+        "reproduces": true,
+        "differs_on": {}
+      },
+      {
+        "partition": "concatenation",
+        "mdl_gain": 6499.534493414958,
+        "held_out_status": "ok",
+        "held_out_p": 3.412499993198257e-40,
+        "reproduces": true,
+        "differs_on": {}
+      },
+      {
+        "partition": "solo_amr",
+        "mdl_gain": 6499.534493414958,
+        "held_out_status": "ok",
+        "held_out_p": 7.019844287066514e-36,
+        "reproduces": true,
+        "differs_on": {}
+      },
+      {
+        "partition": "solo_vir",
+        "mdl_gain": 6499.534493414958,
+        "held_out_status": "ok",
+        "held_out_p": 5.038848450664633e-39,
+        "reproduces": true,
+        "differs_on": {}
+      },
+      {
+        "partition": "bernoulli_mixture",
+        "mdl_gain": 6499.534493414958,
+        "held_out_status": "ok",
+        "held_out_p": 4.4700185366336565e-44,
+        "reproduces": true,
+        "differs_on": {}
+      }
+    ],
+    "n_tested": 5,
+    "n_reproducing": 5,
+    "reproducing_candidates": [
+      "bernoulli_mixture",
+      "concatenation",
+      "solo_amr",
+      "solo_vir"
+    ],
+    "best_in_sample_description_length": "fused_snf",
+    "reported_reproduces": true,
+    "distinguishable": {}
+  },
+  "k_at_sweep_boundary": false,
+  "lineage_attribution_support": 1.0,
+  "lineage_attribution_estimable": true,
+  "lineage_confounded": false,
+  "mdl_p_value": null,
+  "mdl_gain_fraction_of_null_code": 0.466602636595967,
+  "claim_level": 4,
+  "claim_status": "archetype_candidate",
+  "active_gate_codes": []
+}

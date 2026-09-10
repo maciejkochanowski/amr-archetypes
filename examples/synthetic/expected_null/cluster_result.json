@@ -1,0 +1,4921 @@
+{
+  "schema_version": "1.0",
+  "seed": 42,
+  "provenance": {
+    "software": "amr-archetypes",
+    "software_version": "1.0.0",
+    "python": "3.11.15",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "pandas": "3.0.5",
+    "scikit_learn": "1.9.0",
+    "inputs": {
+      "amr": {
+        "path": "amr.csv",
+        "sha256": "6a458e9eabe35ea1c61f30e90e5a89758b8bc70e42a7878135250ca527c4cf29"
+      },
+      "vir": {
+        "path": "vir.csv",
+        "sha256": "b2098c2aa717889663b4877537357bff6106b3d4ce1a9481a48c436a044014b7"
+      }
+    }
+  },
+  "config": {
+    "distance": {
+      "metric": "jaccard",
+      "undefined_pair": "identical",
+      "one_hot_metric": "simple_matching"
+    },
+    "snf": {
+      "K": 20,
+      "mu": 0.5,
+      "T": 20,
+      "alpha": 0.5,
+      "tie_policy": "inclusive",
+      "update": "renormalise"
+    },
+    "prevalence_gate": {
+      "lo": 0.0,
+      "hi": 1.0,
+      "min_count": 2
+    },
+    "mdl_complexity": "rissanen",
+    "monte_carlo": {
+      "consensus_B": 100,
+      "n_perm": 0,
+      "n_boot": 500,
+      "ps_n_reps": 30,
+      "gap_B": 30
+    }
+  },
+  "selected_k": 1,
+  "k_selection": {
+    "requested_method": "mdl",
+    "k_select_arg": "auto",
+    "mdl_complexity": "rissanen",
+    "k_range_swept": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "mdl_sweep": [
+      {
+        "k": 1,
+        "gain": -0.06697721780983557,
+        "L_null": 7134.323423828999,
+        "L_archetype": 7134.390401046809
+      },
+      {
+        "k": 2,
+        "gain": -135.66193336491415,
+        "L_null": 7134.323423828999,
+        "L_archetype": 7269.985357193913
+      },
+      {
+        "k": 3,
+        "gain": -226.78803427321873,
+        "L_null": 7134.323423828999,
+        "L_archetype": 7361.1114581022175
+      },
+      {
+        "k": 4,
+        "gain": -278.3244363052454,
+        "L_null": 7134.323423828999,
+        "L_archetype": 7412.647860134244
+      },
+      {
+        "k": 5,
+        "gain": -321.52592944763364,
+        "L_null": 7134.323423828999,
+        "L_archetype": 7455.849353276632
+      },
+      {
+        "k": 6,
+        "gain": -348.9630041532655,
+        "L_null": 7134.323423828999,
+        "L_archetype": 7483.286427982264
+      },
+      {
+        "k": 7,
+        "gain": -366.7443933273562,
+        "L_null": 7134.323423828999,
+        "L_archetype": 7501.067817156355
+      },
+      {
+        "k": 8,
+        "gain": -418.46425060567344,
+        "L_null": 7134.323423828999,
+        "L_archetype": 7552.787674434672
+      },
+      {
+        "k": 9,
+        "gain": -435.17992346549636,
+        "L_null": 7134.323423828999,
+        "L_archetype": 7569.503347294495
+      },
+      {
+        "k": 10,
+        "gain": -475.58318288931605,
+        "L_null": 7134.323423828999,
+        "L_archetype": 7609.906606718315
+      }
+    ],
+    "mdl_best_gain": -0.06697721780983557,
+    "mdl_gain_fraction": -9.388026562705063e-06,
+    "mdl_gain_bits_per_isolate": -0.00037209565449908646,
+    "mdl_prefers_no_clustering": true,
+    "mdl_optimum_at_k_range_boundary": false,
+    "mdl_note": "gain as a fraction of the i.i.d. code length is the interpretable scale; a fraction below ~0.01 is a weak preference however large the bit count looks",
+    "method_used": "mdl",
+    "selected_k": 1,
+    "no_structure": true
+  },
+  "layers": [
+    "amr",
+    "vir"
+  ],
+  "layer_reports": [
+    {
+      "layer": "amr",
+      "kind": "wide_binary",
+      "n_features_in": 18,
+      "n_features_used": 18,
+      "gated_out": [],
+      "truncated_by_top_variance": [],
+      "n_uninformative_rows": 1,
+      "frac_uninformative_rows": 0.005555555555555556,
+      "effective_dimension": 16.370253182822402,
+      "density": 0.2441358024691358,
+      "knn_ties": {
+        "K": 20.0,
+        "mean_degree": 20.016666666666666,
+        "tie_inflation": 1.0008333333333332,
+        "frac_rows_tied": 0.016666666666666666,
+        "n_distinct_affinities": 14320.0
+      }
+    },
+    {
+      "layer": "vir",
+      "kind": "wide_binary",
+      "n_features_in": 30,
+      "n_features_used": 30,
+      "gated_out": [],
+      "truncated_by_top_variance": [],
+      "n_uninformative_rows": 0,
+      "frac_uninformative_rows": 0.0,
+      "effective_dimension": 25.143136669452925,
+      "density": 0.24981481481481482,
+      "knn_ties": {
+        "K": 20.0,
+        "mean_degree": 20.0,
+        "tie_inflation": 1.0,
+        "frac_rows_tied": 0.0,
+        "n_distinct_affinities": 16108.0
+      }
+    }
+  ],
+  "n_isolates": 180,
+  "cluster_sizes": {
+    "0": 180
+  },
+  "assignment": [
+    {
+      "isolate_id": "SC_0000",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0001",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0002",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0003",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0004",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0005",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0006",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0007",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0008",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0009",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0010",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0011",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0012",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0013",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0014",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0015",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0016",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0017",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0018",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0019",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0020",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0021",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0022",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0023",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0024",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0025",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0026",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0027",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0028",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0029",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0030",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0031",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0032",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "vir"
+      ],
+      "n_informative_layers": 1,
+      "layer_conflict": null,
+      "discordant_layer": null
+    },
+    {
+      "isolate_id": "SC_0033",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0034",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0035",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0036",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0037",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0038",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0039",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0040",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0041",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0042",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0043",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0044",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0045",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0046",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0047",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0048",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0049",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0050",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0051",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0052",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0053",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0054",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0055",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0056",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0057",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0058",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0059",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0060",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0061",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0062",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0063",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0064",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0065",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0066",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0067",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0068",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0069",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0070",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0071",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0072",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0073",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0074",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0075",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0076",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0077",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0078",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0079",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0080",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0081",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0082",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0083",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0084",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0085",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0086",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0087",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0088",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0089",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0090",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0091",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0092",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0093",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0094",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0095",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0096",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0097",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0098",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0099",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0100",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0101",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0102",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0103",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0104",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0105",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0106",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0107",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0108",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0109",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0110",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0111",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0112",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0113",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0114",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0115",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0116",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0117",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0118",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0119",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0120",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0121",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0122",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0123",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0124",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0125",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0126",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0127",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0128",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0129",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0130",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0131",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0132",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0133",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0134",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0135",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0136",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0137",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0138",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0139",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0140",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0141",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0142",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0143",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0144",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0145",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0146",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0147",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0148",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0149",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0150",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0151",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0152",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0153",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0154",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0155",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0156",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0157",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0158",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0159",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0160",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0161",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0162",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0163",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0164",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0165",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0166",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0167",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0168",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0169",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0170",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0171",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0172",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0173",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0174",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0175",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0176",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0177",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0178",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    },
+    {
+      "isolate_id": "SC_0179",
+      "cluster": 0,
+      "confidence": 1.0,
+      "stability": "robust",
+      "fragility": 0.0,
+      "positive_layers": [
+        "amr",
+        "vir"
+      ],
+      "n_informative_layers": 2,
+      "layer_conflict": 0.0,
+      "discordant_layer": "fused"
+    }
+  ],
+  "descriptive_archetype_profiles": [],
+  "n_defining_features_descriptive": 0,
+  "mdl_calibration": {
+    "n_perm": 0,
+    "p_MDL": null,
+    "reject_H0": null,
+    "gain_obs": -0.06697721780983557,
+    "note": "permutation null not run (n_perm=0). Re-run with run(..., n_perm=199) for a p-value; cost is O(n_perm * T * m * n^3). The default evidence for real structure is result['post_clustering_inference']."
+  },
+  "mdl_contribution": [
+    {
+      "cluster": 0,
+      "n_c": 180,
+      "L_null_restricted": 6954.518949517086,
+      "L_residuals": 6954.585926734896,
+      "MDL_contribution": -0.06697721780983557
+    }
+  ],
+  "pac": 0.0,
+  "cdf_area": 0.0,
+  "artifact_diagnostics": {
+    "per_layer": [
+      {
+        "layer": "amr",
+        "n_uninformative_rows": 1,
+        "frac_uninformative_rows": 0.005555555555555556,
+        "empty_stratum_ari": 0.0,
+        "empty_stratum_ami": 0.0,
+        "effective_dimension": 16.370253182822402,
+        "n_features_used": 18,
+        "knn_tie_inflation": 1.0008333333333332
+      },
+      {
+        "layer": "vir",
+        "n_uninformative_rows": 0,
+        "frac_uninformative_rows": 0.0,
+        "empty_stratum_ari": null,
+        "empty_stratum_ami": null,
+        "effective_dimension": 25.143136669452925,
+        "n_features_used": 30,
+        "knn_tie_inflation": 1.0
+      }
+    ],
+    "largest_group": {
+      "label": 0,
+      "size": 180,
+      "frac_positive_in_no_layer": 0.0,
+      "n_isolates_positive_in_no_layer": 0,
+      "ari_largest_vs_rest_against_all_empty_indicator": null
+    },
+    "frac_uninformative_per_cluster": {
+      "0": {
+        "amr": 0.005555555555555556,
+        "vir": 0.0
+      }
+    },
+    "layer_positivity_pattern_per_cluster": {
+      "0": {
+        "amr+vir": 179,
+        "vir": 1
+      }
+    },
+    "frac_positive_in_no_layer_per_cluster": {
+      "0": 0.0
+    },
+    "frac_positive_in_all_layers_per_cluster": {
+      "0": 0.9944444444444445
+    },
+    "max_empty_stratum_ari": 0.0,
+    "empty_stratum_layer": null,
+    "empty_stratum_warning": false,
+    "note": "empty_stratum_ari compares the partition to the indicator 'carries none of this layer's features', and largest_group compares the largest group against the rest with the indicator 'carries none of any layer's features'; max_empty_stratum_ari is the larger of the two and a value at or above 0.5 means the grouping is the trait-absent stratum, an artefact of the empty-union distance convention rather than trait structure"
+  },
+  "layer_influence": {
+    "per_layer": [
+      {
+        "layer": "amr",
+        "ari_solo_vs_fused": 1.0,
+        "delta_loo": 0.0,
+        "weight": 0.5,
+        "p_contribution": 1.0,
+        "null_mean_delta_loo": 0.0,
+        "inert": true
+      },
+      {
+        "layer": "vir",
+        "ari_solo_vs_fused": 1.0,
+        "delta_loo": 0.0,
+        "weight": 0.5,
+        "p_contribution": 1.0,
+        "null_mean_delta_loo": 0.0,
+        "inert": true
+      }
+    ],
+    "n_layers": 2,
+    "n_eff": 2.0,
+    "n_eff_simpson": 2.0,
+    "max_ari_solo_vs_fused": 1.0,
+    "regime": "redundant",
+    "regime_note": "every layer reproduces the fused partition alone; the fusion adds nothing over the best single layer",
+    "collapse": false,
+    "collapse_threshold": 1.5,
+    "n_perm": 10,
+    "dominant_layer": "amr",
+    "n_perm_requested": 10
+  },
+  "layer_contribution": [
+    {
+      "layer": "amr",
+      "ari_solo_vs_fused": 1.0,
+      "silhouette_of_fused_in_layer": null
+    },
+    {
+      "layer": "vir",
+      "ari_solo_vs_fused": 1.0,
+      "silhouette_of_fused_in_layer": null
+    }
+  ],
+  "layer_agreement": {
+    "pair_agreement": {
+      "fused|amr": 1.0,
+      "fused|vir": 1.0,
+      "amr|vir": 1.0
+    },
+    "fused_vs_layer": {
+      "amr": 1.0,
+      "vir": 1.0
+    },
+    "conflict_mean_layer_pairs_only": 0.0,
+    "n_layer_pairs": 1
+  },
+  "baselines": {
+    "candidates": [
+      {
+        "partition": "fused_snf",
+        "n_clusters": 1,
+        "cluster_sizes": {
+          "0": 180
+        },
+        "ari_vs_fused": 1.0,
+        "mdl_gain": -0.06697721780983557,
+        "mdl_gain_scope": "in sample: favours a candidate fitted by likelihood on these same bits",
+        "external_agreement": {},
+        "external_agreement_vs_reported": {},
+        "held_out": {
+          "status": "skipped",
+          "reason": "held-out test not run for candidates on this run"
+        }
+      },
+      {
+        "partition": "concatenation",
+        "n_clusters": 1,
+        "cluster_sizes": {
+          "0": 180
+        },
+        "ari_vs_fused": 1.0,
+        "mdl_gain": -0.06697721780983557,
+        "mdl_gain_scope": "in sample: favours a candidate fitted by likelihood on these same bits",
+        "external_agreement": {},
+        "external_agreement_vs_reported": {},
+        "held_out": {
+          "status": "skipped",
+          "reason": "held-out test not run for candidates on this run"
+        }
+      },
+      {
+        "partition": "solo_amr",
+        "n_clusters": 1,
+        "cluster_sizes": {
+          "0": 180
+        },
+        "ari_vs_fused": 1.0,
+        "mdl_gain": -0.06697721780983557,
+        "mdl_gain_scope": "in sample: favours a candidate fitted by likelihood on these same bits",
+        "external_agreement": {},
+        "external_agreement_vs_reported": {},
+        "held_out": {
+          "status": "skipped",
+          "reason": "held-out test not run for candidates on this run"
+        }
+      },
+      {
+        "partition": "solo_vir",
+        "n_clusters": 1,
+        "cluster_sizes": {
+          "0": 180
+        },
+        "ari_vs_fused": 1.0,
+        "mdl_gain": -0.06697721780983557,
+        "mdl_gain_scope": "in sample: favours a candidate fitted by likelihood on these same bits",
+        "external_agreement": {},
+        "external_agreement_vs_reported": {},
+        "held_out": {
+          "status": "skipped",
+          "reason": "held-out test not run for candidates on this run"
+        }
+      },
+      {
+        "partition": "bernoulli_mixture",
+        "n_clusters": 1,
+        "cluster_sizes": {
+          "0": 180
+        },
+        "ari_vs_fused": 1.0,
+        "mdl_gain": -0.06697721780983557,
+        "mdl_gain_scope": "in sample: favours a candidate fitted by likelihood on these same bits",
+        "external_agreement": {},
+        "external_agreement_vs_reported": {},
+        "held_out": {
+          "status": "skipped",
+          "reason": "held-out test not run for candidates on this run"
+        }
+      }
+    ],
+    "bernoulli_mixture_k_by_bic": 1,
+    "bernoulli_mixture_bic_table": [
+      {
+        "k": 1,
+        "loglik": -4820.505201008482,
+        "n_par": 48,
+        "bic": 9890.272330859694,
+        "aic": 9737.010402016964
+      },
+      {
+        "k": 2,
+        "loglik": -4767.68692849428,
+        "n_par": 97,
+        "bic": 10039.090671524911,
+        "aic": 9729.37385698856
+      },
+      {
+        "k": 3,
+        "loglik": -4717.829521362173,
+        "n_par": 146,
+        "bic": 10193.830742954317,
+        "aic": 9727.659042724346
+      },
+      {
+        "k": 4,
+        "loglik": -4662.797731552777,
+        "n_par": 195,
+        "bic": 10338.222049029146,
+        "aic": 9715.595463105554
+      },
+      {
+        "k": 5,
+        "loglik": -4630.572078018749,
+        "n_par": 244,
+        "bic": 10528.22562765471,
+        "aic": 9749.144156037499
+      },
+      {
+        "k": 6,
+        "loglik": -4589.374859941992,
+        "n_par": 293,
+        "bic": 10700.286077194816,
+        "aic": 9764.749719883985
+      },
+      {
+        "k": 7,
+        "loglik": -4552.881307362597,
+        "n_par": 342,
+        "bic": 10881.753857729645,
+        "aic": 9789.762614725194
+      },
+      {
+        "k": 8,
+        "loglik": -4506.235618525896,
+        "n_par": 391,
+        "bic": 11042.917365749865,
+        "aic": 9794.471237051792
+      },
+      {
+        "k": 9,
+        "loglik": -4472.835648623363,
+        "n_par": 440,
+        "bic": 11230.57231163842,
+        "aic": 9825.671297246727
+      },
+      {
+        "k": 10,
+        "loglik": -4449.43870312038,
+        "n_par": 489,
+        "bic": 11438.233306326072,
+        "aic": 9876.87740624076
+      }
+    ],
+    "note": "ari_vs_fused says only whether a candidate agrees with the reported partition. mdl_gain is in sample and favours a likelihood-fitted candidate by construction. external_agreement is a point value; the paired difference in external_agreement_vs_reported carries the interval that says whether two candidates can be told apart. held_out is the feature-split test the reported partition must pass, run on each candidate's own pipeline. The reported partition is attested by its own held-out test; it is not claimed to be the best of these candidates, and the report states which candidates the data can and cannot separate."
+  },
+  "metadata_diagnostics": {
+    "lineage_column": "lineage",
+    "lineage_concordance": {
+      "status": "ok",
+      "n_isolates": 180,
+      "n_lineages": 45,
+      "n_same_lineage_pairs": 270,
+      "n_pairs_total": 16110,
+      "frac_pairs_informative": 0.01675977653631285,
+      "collapse_variants": false,
+      "concordance_observed": 1.0,
+      "concordance_null_mean": 1.0,
+      "concordance_null_sd": 0.0,
+      "z": null,
+      "p_value": 1.0,
+      "n_perm": 500,
+      "ami_vs_lineage": 0.0,
+      "ari_vs_lineage": 0.0,
+      "note": "the pair concordance, not AMI/ARI, is the primary statistic: with many singleton lineages AMI is chance-corrected towards zero even under strong clonal confounding"
+    },
+    "lineage_attribution": {
+      "r2_lineage": -0.019362131304750667,
+      "r2_partition": 0.0,
+      "r2_joint": 0.00010048401446031933,
+      "shared": -0.019462615319210987,
+      "lam": null,
+      "lam_clipped": false,
+      "shapley_lineage": -0.009630823645145174,
+      "shapley_partition": 0.009731307659605493,
+      "ci_low": null,
+      "ci_high": null,
+      "n": 180,
+      "missing_share": 0.0,
+      "partition_refit": true,
+      "lam_cv_sd": null,
+      "r2_partition_assignment_control": 0.0,
+      "lam_assignment_control": null,
+      "lambda_gate": 0.5,
+      "support": 1.0,
+      "support_threshold": 0.9,
+      "estimable": true
+    },
+    "clonal_share": {
+      "amr_00": {
+        "kappa": -0.3893964842561902,
+        "kappa_adj": 0.039804137491387226,
+        "ci_low": -0.14352304321669032,
+        "ci_high": 0.2114670564292245,
+        "null_mean": -0.44699278397872455,
+        "p_value": 0.31343283582089554,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.20555555555555555,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.08613411991353274,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.24974450628724298,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.07818202607450075,
+        "latent_low": 0.0,
+        "latent_high": 0.374779131350806,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.43290140395401977,
+        "dominant_lineage_share": 0.14558132484462635,
+        "few_lineages": false
+      },
+      "amr_01": {
+        "kappa": -0.4637060190906427,
+        "kappa_adj": -0.0003251110773785407,
+        "ci_low": -0.14351249561936077,
+        "ci_high": 0.16195123625373206,
+        "null_mean": -0.46323030670917553,
+        "p_value": 0.3880597014925373,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.24444444444444444,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.08207354335791552,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.18245549752191437,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.2824355800112244,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.31526653925538994,
+        "dominant_lineage_share": 0.12400419287211739,
+        "few_lineages": false
+      },
+      "amr_02": {
+        "kappa": -0.4517486816777101,
+        "kappa_adj": -0.003971275898698605,
+        "ci_low": -0.18215326314071073,
+        "ci_high": 0.14026043153171597,
+        "null_mean": -0.4460061921375055,
+        "p_value": 0.7213930348258707,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2222222222222222,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.08623624569675563,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.2082461390436947,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.2534898322483059,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.3632323784113396,
+        "dominant_lineage_share": 0.15668402777777776,
+        "few_lineages": false
+      },
+      "amr_03": {
+        "kappa": -0.31553298280210074,
+        "kappa_adj": 0.08821560283798668,
+        "ci_low": -0.10993953991498163,
+        "ci_high": 0.25336177634442747,
+        "null_mean": -0.44281146606235033,
+        "p_value": 0.0945273631840796,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.24444444444444444,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.0625745376511,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.316021225449731,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.15895225419080816,
+        "latent_low": 0.0,
+        "latent_high": 0.42365716767380945,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.5126263743441086,
+        "dominant_lineage_share": 0.09515109732276227,
+        "few_lineages": false
+      },
+      "amr_04": {
+        "kappa": -0.3921820972118163,
+        "kappa_adj": 0.04373513650549411,
+        "ci_low": -0.14406029254757335,
+        "ci_high": 0.1864841782996364,
+        "null_mean": -0.4558540738643535,
+        "p_value": 0.2885572139303483,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2222222222222222,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.11363637714494466,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.2589131392496711,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.08318867356865667,
+        "latent_low": 0.0,
+        "latent_high": 0.32899915424059145,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.43968764881719835,
+        "dominant_lineage_share": 0.13736681887366817,
+        "few_lineages": false
+      },
+      "amr_05": {
+        "kappa": -0.3279404519053565,
+        "kappa_adj": 0.07915782114388599,
+        "ci_low": -0.15990792431867823,
+        "ci_high": 0.27010764217056965,
+        "null_mean": -0.44209342534129675,
+        "p_value": 0.03980099502487562,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2833333333333333,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.07797389874471933,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.27010764217056965,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.13693130496540107,
+        "latent_low": 0.0,
+        "latent_high": 0.43672309615067206,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.43672309615067206,
+        "dominant_lineage_share": 0.1818092428711898,
+        "few_lineages": false
+      },
+      "amr_06": {
+        "kappa": -0.4881087290905519,
+        "kappa_adj": -0.029639523228725744,
+        "ci_low": -0.18131251842363225,
+        "ci_high": 0.12886081092962232,
+        "null_mean": -0.4452715688536959,
+        "p_value": 0.5671641791044776,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2222222222222222,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.10684958583197827,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.16867534934863215,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.2342782364867162,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.3003591120650526,
+        "dominant_lineage_share": 0.15668402777777776,
+        "few_lineages": false
+      },
+      "amr_07": {
+        "kappa": -0.42781315711725,
+        "kappa_adj": 0.007054220076706438,
+        "ci_low": -0.15046083462959797,
+        "ci_high": 0.15759727547142685,
+        "null_mean": -0.43795682099333816,
+        "p_value": 0.3880597014925373,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2611111111111111,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.07527560750974548,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.18599406706925947,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.012844966928241774,
+        "latent_low": 0.0,
+        "latent_high": 0.2708928740757983,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.3160519284720067,
+        "dominant_lineage_share": 0.1064906490649065,
+        "few_lineages": false
+      },
+      "amr_08": {
+        "kappa": -0.5907825342504618,
+        "kappa_adj": -0.10416204810097689,
+        "ci_low": -0.27220008794275663,
+        "ci_high": 0.045518960847657684,
+        "null_mean": -0.44071473656100785,
+        "p_value": 0.8706467661691543,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.24444444444444444,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.08616682897628619,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.1042609294918293,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.08357198341400363,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.18654272609273903,
+        "dominant_lineage_share": 0.1779712013754567,
+        "few_lineages": false
+      },
+      "amr_09": {
+        "kappa": -0.43773892667357706,
+        "kappa_adj": 0.004800788758504766,
+        "ci_low": -0.1453443785358299,
+        "ci_high": 0.15128042459285002,
+        "null_mean": -0.4446745037910757,
+        "p_value": 0.5920398009950248,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2222222222222222,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.08416767978404198,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.212858385069012,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.009330785745987669,
+        "latent_low": 0.0,
+        "latent_high": 0.27183873698231764,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.37038007788942195,
+        "dominant_lineage_share": 0.13736681887366817,
+        "few_lineages": false
+      },
+      "amr_10": {
+        "kappa": -0.47602546357913045,
+        "kappa_adj": -0.017592126301786932,
+        "ci_low": -0.1837424941902039,
+        "ci_high": 0.12803104915713345,
+        "null_mean": -0.4505079446157056,
+        "p_value": 0.3582089552238806,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.26666666666666666,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.10125264752523971,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.16640666404055082,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.22142614619224332,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.283608687488595,
+        "dominant_lineage_share": 0.11395663956639565,
+        "few_lineages": false
+      },
+      "amr_11": {
+        "kappa": -0.5513225883742787,
+        "kappa_adj": -0.059548537905552666,
+        "ci_low": -0.24523316100724327,
+        "ci_high": 0.060122109440925026,
+        "null_mean": -0.46413546229871955,
+        "p_value": 0.9552238805970149,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2611111111111111,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.08268591039492167,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.13756477964216174,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.10731941639096476,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.23834704558248632,
+        "dominant_lineage_share": 0.1475890985324948,
+        "few_lineages": false
+      },
+      "amr_12": {
+        "kappa": -0.5187090263290048,
+        "kappa_adj": -0.051207315319143666,
+        "ci_low": -0.21449892811633076,
+        "ci_high": 0.08602543368460047,
+        "null_mean": -0.4447283653728465,
+        "p_value": 0.8706467661691543,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.31666666666666665,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.06732273472129796,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.14607373477792862,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.14415391298825853,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.24107291849213652,
+        "dominant_lineage_share": 0.09159891598915991,
+        "few_lineages": false
+      },
+      "amr_13": {
+        "kappa": -0.4995550292473799,
+        "kappa_adj": -0.04754627941020986,
+        "ci_low": -0.2169791632772095,
+        "ci_high": 0.09273123208693419,
+        "null_mean": -0.43149286930946884,
+        "p_value": 0.6318407960199005,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2388888888888889,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.08157459315793257,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.15261802606346464,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.16794278399902396,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.26886700457544066,
+        "dominant_lineage_share": 0.14975230007077142,
+        "few_lineages": false
+      },
+      "amr_14": {
+        "kappa": -0.530976277298021,
+        "kappa_adj": -0.060279123205824306,
+        "ci_low": -0.22315929907915458,
+        "ci_high": 0.08461933201333023,
+        "null_mean": -0.44393701978118044,
+        "p_value": 0.7761194029850746,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.22777777777777777,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.07953731937006002,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.13023559706653032,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.1561975339136552,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.2349471451889258,
+        "dominant_lineage_share": 0.17015212786443287,
+        "few_lineages": false
+      },
+      "amr_15": {
+        "kappa": -0.3443336278463683,
+        "kappa_adj": 0.07836179142293324,
+        "ci_low": -0.0992742823958957,
+        "ci_high": 0.2359141765571285,
+        "null_mean": -0.458634869231288,
+        "p_value": 0.06965174129353234,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2388888888888889,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.0882895392830144,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.29756454037760705,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.14286056757555343,
+        "latent_low": 0.0,
+        "latent_high": 0.3995798525575083,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.4889590300444979,
+        "dominant_lineage_share": 0.10472655283345705,
+        "few_lineages": false
+      },
+      "amr_16": {
+        "kappa": -0.3144408520817893,
+        "kappa_adj": 0.083478527162269,
+        "ci_low": -0.13055639072044992,
+        "ci_high": 0.27786681136463065,
+        "null_mean": -0.43416263670508615,
+        "p_value": 0.11442786069651742,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.25,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.07797560911064552,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.27786681136463065,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.1496756680717226,
+        "latent_low": 0.0,
+        "latent_high": 0.45742397182038985,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.45742397182038985,
+        "dominant_lineage_share": 0.21428571428571427,
+        "few_lineages": false
+      },
+      "amr_17": {
+        "kappa": -0.5338429833773322,
+        "kappa_adj": -0.06415225339890882,
+        "ci_low": -0.24878408924408657,
+        "ci_high": 0.10146227258840648,
+        "null_mean": -0.44137549723569,
+        "p_value": 0.8606965174129353,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2222222222222222,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.10676709387860396,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.14517233406968444,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.18713474544347264,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.2616954166733194,
+        "dominant_lineage_share": 0.1823232323232323,
+        "few_lineages": false
+      },
+      "vir_00": {
+        "kappa": -0.494041445892125,
+        "kappa_adj": -0.03128713407768654,
+        "ci_low": -0.192778744299643,
+        "ci_high": 0.13414918562963893,
+        "null_mean": -0.44871529618014155,
+        "p_value": 0.6666666666666666,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.23333333333333334,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.12112295688206488,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.17674666580023768,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.23991427270811982,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.30965890528750606,
+        "dominant_lineage_share": 0.14830246913580242,
+        "few_lineages": false
+      },
+      "vir_01": {
+        "kappa": -0.4869975086116797,
+        "kappa_adj": -0.027760873752218935,
+        "ci_low": -0.21832786725025238,
+        "ci_high": 0.0809309986556677,
+        "null_mean": -0.44683218303772215,
+        "p_value": 0.746268656716418,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.24444444444444444,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.11304100537212623,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.18963247455030796,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.1462937400501687,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.32660193133051507,
+        "dominant_lineage_share": 0.038733296723412046,
+        "few_lineages": false
+      },
+      "vir_02": {
+        "kappa": -0.4204911686367755,
+        "kappa_adj": 0.008580495589658444,
+        "ci_low": -0.13789272012673476,
+        "ci_high": 0.1948780748278548,
+        "null_mean": -0.4327851755162204,
+        "p_value": 0.6467661691542289,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.25,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.11283241358899078,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.21992153657720337,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.01587445757468231,
+        "latent_low": 0.0,
+        "latent_high": 0.33314132629311644,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.3717882721393835,
+        "dominant_lineage_share": 0.10526315789473684,
+        "few_lineages": false
+      },
+      "vir_03": {
+        "kappa": -0.4849763448325918,
+        "kappa_adj": -0.0221837817534964,
+        "ci_low": -0.2624361688932692,
+        "ci_high": 0.09478878837789972,
+        "null_mean": -0.45274888072006175,
+        "p_value": 0.44776119402985076,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.09040954263523701,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.18139783380411245,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.18156672289478593,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.3294158168428112,
+        "dominant_lineage_share": 0.06206896551724135,
+        "few_lineages": false
+      },
+      "vir_04": {
+        "kappa": -0.5128259295750677,
+        "kappa_adj": -0.04749644610727611,
+        "ci_low": -0.20702663220781348,
+        "ci_high": 0.10584790400520837,
+        "null_mean": -0.4442301309919063,
+        "p_value": 0.8706467661691543,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.25,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.08240549905872446,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.13682630488710856,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.18800842520431615,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.23986203849199228,
+        "dominant_lineage_share": 0.03571428571428571,
+        "few_lineages": false
+      },
+      "vir_05": {
+        "kappa": -0.5292727767779877,
+        "kappa_adj": -0.05504042586613279,
+        "ci_low": -0.194953306462871,
+        "ci_high": 0.10136846528324053,
+        "null_mean": -0.4494921135581464,
+        "p_value": 0.7213930348258707,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2722222222222222,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.09212824769785512,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.12796091284326394,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.1760391252755653,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.22012536841793917,
+        "dominant_lineage_share": 0.12320506413459935,
+        "few_lineages": false
+      },
+      "vir_06": {
+        "kappa": -0.5514315367808424,
+        "kappa_adj": -0.07494269608026004,
+        "ci_low": -0.19335900406126222,
+        "ci_high": 0.11708153794450053,
+        "null_mean": -0.4432690620979908,
+        "p_value": 0.9104477611940298,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2111111111111111,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.1314290814989584,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.1361687504704605,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.2175132411357481,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.25024211264098994,
+        "dominant_lineage_share": 0.051534210024776046,
+        "few_lineages": false
+      },
+      "vir_07": {
+        "kappa": -0.544386648798156,
+        "kappa_adj": -0.06776487604025504,
+        "ci_low": -0.21559904165904067,
+        "ci_high": 0.084583748854311,
+        "null_mean": -0.4463733387873045,
+        "p_value": 0.6019900497512438,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2611111111111111,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.09986836182699528,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.12281542304481263,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.14958967894199304,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.21402600870351307,
+        "dominant_lineage_share": 0.1370134465675867,
+        "few_lineages": false
+      },
+      "vir_08": {
+        "kappa": -0.5884915682266909,
+        "kappa_adj": -0.1004843472115793,
+        "ci_low": -0.24201348806281575,
+        "ci_high": 0.06322729688699513,
+        "null_mean": -0.44344767124732876,
+        "p_value": 0.9950248756218906,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.21666666666666667,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.1104560405138926,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.10570029130940384,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.12007434762199409,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.19605106962262653,
+        "dominant_lineage_share": 0.055363984674329514,
+        "few_lineages": false
+      },
+      "vir_09": {
+        "kappa": -0.4280368873579329,
+        "kappa_adj": 0.01596346510719697,
+        "ci_low": -0.15351812806998966,
+        "ci_high": 0.18599751320239227,
+        "null_mean": -0.4512031176906429,
+        "p_value": 0.26865671641791045,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2222222222222222,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.08548522693753377,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.2266695894077202,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.03083230261108838,
+        "latent_low": 0.0,
+        "latent_high": 0.328223994380096,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.39155850975657813,
+        "dominant_lineage_share": 0.13736681887366817,
+        "few_lineages": false
+      },
+      "vir_10": {
+        "kappa": -0.3737212010512286,
+        "kappa_adj": 0.05185838544926519,
+        "ci_low": -0.11820251064387155,
+        "ci_high": 0.21535928112699515,
+        "null_mean": -0.44885656316451145,
+        "p_value": 0.2935323383084577,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.25,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.08120500731911742,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.26260805807578436,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.09421854253741913,
+        "latent_low": 0.0,
+        "latent_high": 0.36482040796545334,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.4353937379491981,
+        "dominant_lineage_share": 0.10526315789473684,
+        "few_lineages": false
+      },
+      "vir_11": {
+        "kappa": -0.4521609143613766,
+        "kappa_adj": -0.005586356124441003,
+        "ci_low": -0.17323425100674072,
+        "ci_high": 0.15935653724986074,
+        "null_mean": -0.4440936927168015,
+        "p_value": 0.5223880597014925,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.3055555555555556,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.08255163119304407,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.186872359681729,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.26401390417595394,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.30700077788787894,
+        "dominant_lineage_share": 0.07945375543140906,
+        "few_lineages": false
+      },
+      "vir_12": {
+        "kappa": -0.35245077603848035,
+        "kappa_adj": 0.06492046298872953,
+        "ci_low": -0.13592287483472404,
+        "ci_high": 0.1758141021338799,
+        "null_mean": -0.4463483826854178,
+        "p_value": 0.11442786069651742,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.22777777777777777,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.08418080017124811,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.25733683195812773,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.1210398267430719,
+        "latent_low": 0.0,
+        "latent_high": 0.3099989415204618,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.43529729373403825,
+        "dominant_lineage_share": 0.129693233524145,
+        "few_lineages": false
+      },
+      "vir_13": {
+        "kappa": -0.4134372516842132,
+        "kappa_adj": 0.025725454623680817,
+        "ci_low": -0.13913730496222865,
+        "ci_high": 0.17569139289526428,
+        "null_mean": -0.4507586782309548,
+        "p_value": 0.23880597014925373,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2722222222222222,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.0843254002615645,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.2358216955235548,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.04584614958730526,
+        "latent_low": 0.0,
+        "latent_high": 0.2969544251973275,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.3893279191979673,
+        "dominant_lineage_share": 0.09702216974944247,
+        "few_lineages": false
+      },
+      "vir_14": {
+        "kappa": -0.5484002216165587,
+        "kappa_adj": -0.06689383546553697,
+        "ci_low": -0.2038223541750052,
+        "ci_high": 0.06581058608676855,
+        "null_mean": -0.4513161198845219,
+        "p_value": 0.9353233830845771,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.25555555555555554,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.0854707030296748,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.12088859032792243,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.11802910044207238,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.21206904595601372,
+        "dominant_lineage_share": 0.1449935932637745,
+        "few_lineages": false
+      },
+      "vir_15": {
+        "kappa": -0.45029686434340277,
+        "kappa_adj": -0.002474892324991643,
+        "ci_low": -0.17219391095695427,
+        "ci_high": 0.14787377143910455,
+        "null_mean": -0.44671639703593896,
+        "p_value": 0.8606965174129353,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2388888888888889,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.08459949349801164,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.21511234987156058,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.2610831682977732,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.36799706632154994,
+        "dominant_lineage_share": 0.13098112039616217,
+        "few_lineages": false
+      },
+      "vir_16": {
+        "kappa": -0.49588522658997247,
+        "kappa_adj": -0.027728352238385195,
+        "ci_low": -0.18230029658671779,
+        "ci_high": 0.1292518158360531,
+        "null_mean": -0.4555258919654643,
+        "p_value": 0.7611940298507462,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.23333333333333334,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.06878630784232828,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.1736321725693415,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.23170116913388483,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.3046623333648313,
+        "dominant_lineage_share": 0.039506172839506165,
+        "few_lineages": false
+      },
+      "vir_17": {
+        "kappa": -0.4553555163012586,
+        "kappa_adj": -0.011251476455793193,
+        "ci_low": -0.17793208658068477,
+        "ci_high": 0.13704614834317033,
+        "null_mean": -0.4391628098303987,
+        "p_value": 0.34328358208955223,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.25555555555555554,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.08178282824673987,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.1973798429207818,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.23883347885566764,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.3354082488513086,
+        "dominant_lineage_share": 0.11861335729260257,
+        "few_lineages": false
+      },
+      "vir_18": {
+        "kappa": -0.5520661258047299,
+        "kappa_adj": -0.06778567397190327,
+        "ci_low": -0.2251996296481225,
+        "ci_high": 0.07423965504996687,
+        "null_mean": -0.4535371316899402,
+        "p_value": 0.8805970149253731,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.25555555555555554,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.08372599894012746,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.128193319195816,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.13270042368094437,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.22421565718832426,
+        "dominant_lineage_share": 0.03873329672341203,
+        "few_lineages": false
+      },
+      "vir_19": {
+        "kappa": -0.6338328703376983,
+        "kappa_adj": -0.13303585710632165,
+        "ci_low": -0.29422679498630494,
+        "ci_high": 0.008020731729258723,
+        "null_mean": -0.44199573216541455,
+        "p_value": 0.9850746268656716,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.25,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.09546852724569506,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.06063044850816368,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.014842355652945116,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.10975318137207069,
+        "dominant_lineage_share": 0.045454545454545456,
+        "few_lineages": false
+      },
+      "vir_20": {
+        "kappa": -0.5110376422199618,
+        "kappa_adj": -0.04435278561795451,
+        "ci_low": -0.23746678470820784,
+        "ci_high": 0.06105603058540418,
+        "null_mean": -0.4468651427265213,
+        "p_value": 0.5671641791044776,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2722222222222222,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.058909808145815784,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.15992600553727243,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.10752172526554205,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.2719113425409887,
+        "dominant_lineage_share": 0.13211861379063952,
+        "few_lineages": false
+      },
+      "vir_21": {
+        "kappa": -0.4533907874595588,
+        "kappa_adj": -0.009390060642000425,
+        "ci_low": -0.195662569888007,
+        "ci_high": 0.12491982220778279,
+        "null_mean": -0.43987031785825337,
+        "p_value": 0.6915422885572139,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.24444444444444444,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.09936623707711692,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.19457151777896797,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.22147693371516652,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.33435546021792106,
+        "dominant_lineage_share": 0.13201020245496572,
+        "few_lineages": false
+      },
+      "vir_22": {
+        "kappa": -0.41556573796891455,
+        "kappa_adj": 0.02007171591105315,
+        "ci_low": -0.16142578746437472,
+        "ci_high": 0.17632722675362325,
+        "null_mean": -0.44456054688225066,
+        "p_value": 0.25870646766169153,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2388888888888889,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.07858705966119292,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.21415137846634025,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.037595894100377336,
+        "latent_low": 0.0,
+        "latent_high": 0.30722122619044967,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.3665208812162746,
+        "dominant_lineage_share": 0.12325615261395077,
+        "few_lineages": false
+      },
+      "vir_23": {
+        "kappa": -0.4950849273283204,
+        "kappa_adj": -0.035290190388892986,
+        "ci_low": -0.23013338931697766,
+        "ci_high": 0.12412309350427066,
+        "null_mean": -0.4441216010814433,
+        "p_value": 0.681592039800995,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.22777777777777777,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.10557681978502284,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.1797419440390513,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.22460756803047843,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.3162986642855685,
+        "dominant_lineage_share": 0.1578420864594498,
+        "few_lineages": false
+      },
+      "vir_24": {
+        "kappa": -0.38053314750034967,
+        "kappa_adj": 0.044258305825075,
+        "ci_low": -0.13071104808275003,
+        "ci_high": 0.18685730035810322,
+        "null_mean": -0.44446261569883655,
+        "p_value": 0.18407960199004975,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2722222222222222,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.09723028833116074,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.25872903632262023,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.07838544630794786,
+        "latent_low": 0.0,
+        "latent_high": 0.3144879736646544,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.42315986592439003,
+        "dominant_lineage_share": 0.09212755356253112,
+        "few_lineages": false
+      },
+      "vir_25": {
+        "kappa": -0.4721946239622257,
+        "kappa_adj": -0.015201412587157901,
+        "ci_low": -0.17795209944947676,
+        "ci_high": 0.1392637160204732,
+        "null_mean": -0.4501502910742194,
+        "p_value": 0.6169154228855721,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.22777777777777777,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.10223837077247148,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.1864124757839818,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.2500993937428575,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.32693637054762803,
+        "dominant_lineage_share": 0.14719307013160088,
+        "few_lineages": false
+      },
+      "vir_26": {
+        "kappa": -0.5185310885210355,
+        "kappa_adj": -0.04657641354640842,
+        "ci_low": -0.2140068484728918,
+        "ci_high": 0.10284435385182697,
+        "null_mean": -0.45095099494490865,
+        "p_value": 0.7313432835820896,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2222222222222222,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.07748202009845394,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.14325370338974608,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.18954592521185987,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.25849541954812594,
+        "dominant_lineage_share": 0.16853408029878617,
+        "few_lineages": false
+      },
+      "vir_27": {
+        "kappa": -0.4868039595188435,
+        "kappa_adj": -0.02485997371711754,
+        "ci_low": -0.18947264454636908,
+        "ci_high": 0.0995627023506143,
+        "null_mean": -0.45073863517791357,
+        "p_value": 0.8308457711442786,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.28888888888888886,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.10642740648241876,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.17394675824925798,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.17022655249456875,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.2903418129135389,
+        "dominant_lineage_share": 0.10660786134323738,
+        "few_lineages": false
+      },
+      "vir_28": {
+        "kappa": -0.5847862307062746,
+        "kappa_adj": -0.09604702340896558,
+        "ci_low": -0.24791878626980487,
+        "ci_high": 0.03773903111339618,
+        "null_mean": -0.4459108020541075,
+        "p_value": 0.9054726368159204,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.31666666666666665,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.10207855226251443,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.12346572635669872,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.0,
+        "latent_low": 0.0,
+        "latent_high": 0.06393013123306446,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.20498335277079605,
+        "dominant_lineage_share": 0.11210613598673301,
+        "few_lineages": false
+      },
+      "vir_29": {
+        "kappa": -0.424139092794073,
+        "kappa_adj": 0.01853530435322237,
+        "ci_low": -0.1699996762319673,
+        "ci_high": 0.18001520099270102,
+        "null_mean": -0.4510344581020068,
+        "p_value": 0.35323383084577115,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.2777777777777778,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.10010429743470892,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.22234684934937832,
+        "p_floor": 0.004975124378109453,
+        "latent_share": 0.03288051611161791,
+        "latent_low": 0.0,
+        "latent_high": 0.3024077950103674,
+        "latent_species_low": 0.0,
+        "latent_species_high": 0.3676132451801095,
+        "dominant_lineage_share": 0.09280667951188182,
+        "few_lineages": false
+      }
+    },
+    "clonal_share_by_layer": {
+      "all_clustering_features": {
+        "kappa": -0.4672314036074573,
+        "kappa_adj": -0.018674444124082083,
+        "ci_low": -0.06507449837578083,
+        "ci_high": 0.011834330698434195,
+        "null_mean": -0.440333967412986,
+        "p_value": 0.9850746268656716,
+        "n": 180,
+        "n_groups": 45,
+        "prevalence": 0.24768518518518517,
+        "support": 1.0,
+        "missing_share": 0.0,
+        "estimable": true,
+        "cv_sd": 0.032836065507753524,
+        "n_dropped_non_finite": 0,
+        "n_dropped_untyped": 0,
+        "interval_target": "lineage_membership",
+        "superpopulation_low": 0.0,
+        "superpopulation_high": 0.05946698691786878,
+        "p_floor": 0.004975124378109453,
+        "latent_share": null,
+        "latent_low": null,
+        "latent_high": null,
+        "latent_species_low": null,
+        "latent_species_high": null,
+        "dominant_lineage_share": null,
+        "few_lineages": false
+      }
+    },
+    "external_agreement": {},
+    "cluster_composition": {
+      "0": {
+        "n": 180,
+        "lineage": {
+          "top": {
+            "L00": 4,
+            "L01": 4,
+            "L02": 4,
+            "L03": 4,
+            "L04": 4
+          },
+          "n_distinct": 45,
+          "max_share": 0.022222222222222223
+        },
+        "planted_cluster": {
+          "top": {
+            "0": 180
+          },
+          "n_distinct": 1,
+          "max_share": 1.0
+        }
+      }
+    }
+  },
+  "phenotype_validation": null,
+  "fragility": {
+    "F_isolate": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "F_feature": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "boundary_matrix": [
+      [
+        0
+      ]
+    ]
+  },
+  "tati_edges": [],
+  "label_recoverability": {
+    "records": [
+      {
+        "isolate_id": "SC_0036",
+        "assigned_cluster": 0,
+        "recovered_cluster": 0,
+        "correct": 1
+      },
+      {
+        "isolate_id": "SC_0001",
+        "assigned_cluster": 0,
+        "recovered_cluster": 0,
+        "correct": 1
+      },
+      {
+        "isolate_id": "SC_0037",
+        "assigned_cluster": 0,
+        "recovered_cluster": 0,
+        "correct": 1
+      },
+      {
+        "isolate_id": "SC_0091",
+        "assigned_cluster": 0,
+        "recovered_cluster": 0,
+        "correct": 1
+      },
+      {
+        "isolate_id": "SC_0072",
+        "assigned_cluster": 0,
+        "recovered_cluster": 0,
+        "correct": 1
+      },
+      {
+        "isolate_id": "SC_0115",
+        "assigned_cluster": 0,
+        "recovered_cluster": 0,
+        "correct": 1
+      },
+      {
+        "isolate_id": "SC_0012",
+        "assigned_cluster": 0,
+        "recovered_cluster": 0,
+        "correct": 1
+      },
+      {
+        "isolate_id": "SC_0111",
+        "assigned_cluster": 0,
+        "recovered_cluster": 0,
+        "correct": 1
+      },
+      {
+        "isolate_id": "SC_0041",
+        "assigned_cluster": 0,
+        "recovered_cluster": 0,
+        "correct": 1
+      },
+      {
+        "isolate_id": "SC_0102",
+        "assigned_cluster": 0,
+        "recovered_cluster": 0,
+        "correct": 1
+      },
+      {
+        "isolate_id": "SC_0031",
+        "assigned_cluster": 0,
+        "recovered_cluster": 0,
+        "correct": 1
+      },
+      {
+        "isolate_id": "SC_0011",
+        "assigned_cluster": 0,
+        "recovered_cluster": 0,
+        "correct": 1
+      },
+      {
+        "isolate_id": "SC_0040",
+        "assigned_cluster": 0,
+        "recovered_cluster": 0,
+        "correct": 1
+      },
+      {
+        "isolate_id": "SC_0152",
+        "assigned_cluster": 0,
+        "recovered_cluster": 0,
+        "correct": 1
+      },
+      {
+        "isolate_id": "SC_0178",
+        "assigned_cluster": 0,
+        "recovered_cluster": 0,
+        "correct": 1
+      },
+      {
+        "isolate_id": "SC_0044",
+        "assigned_cluster": 0,
+        "recovered_cluster": 0,
+        "correct": 1
+      },
+      {
+        "isolate_id": "SC_0017",
+        "assigned_cluster": 0,
+        "recovered_cluster": 0,
+        "correct": 1
+      },
+      {
+        "isolate_id": "SC_0117",
+        "assigned_cluster": 0,
+        "recovered_cluster": 0,
+        "correct": 1
+      },
+      {
+        "isolate_id": "SC_0108",
+        "assigned_cluster": 0,
+        "recovered_cluster": 0,
+        "correct": 1
+      },
+      {
+        "isolate_id": "SC_0097",
+        "assigned_cluster": 0,
+        "recovered_cluster": 0,
+        "correct": 1
+      }
+    ],
+    "internal_label_recoverability": 1.0,
+    "n_evaluated": 20,
+    "note": "recovery of the pipeline's own labels from half the features; internal coherence, not external predictive validity"
+  },
+  "post_clustering_inference": {
+    "status": "skipped",
+    "reason": "k = 1: no partition to test",
+    "structure_detected": false,
+    "discreteness": null
+  },
+  "interpretation": {
+    "contract_version": "1.0",
+    "claim_level": 0,
+    "claim_status": "no_structure",
+    "active_gate_codes": [],
+    "gate_ledger": [
+      {
+        "code": "k_selection",
+        "applicable": false,
+        "triggered": false,
+        "value": {
+          "selected_k": 1,
+          "top_of_sweep": 10
+        },
+        "threshold": "optimum inside the swept range",
+        "margin_to_failure": null
+      },
+      {
+        "code": "fusion_collapse",
+        "applicable": true,
+        "triggered": false,
+        "value": 2.0,
+        "threshold": 1.5,
+        "margin_to_failure": 0.5
+      },
+      {
+        "code": "empty_stratum",
+        "applicable": true,
+        "triggered": false,
+        "value": 0.0,
+        "threshold": 0.5,
+        "margin_to_failure": 0.5
+      },
+      {
+        "code": "post_clustering_inference",
+        "applicable": false,
+        "triggered": false,
+        "value": "skipped",
+        "threshold": "status == ok",
+        "margin_to_failure": null
+      },
+      {
+        "code": "split_design",
+        "applicable": false,
+        "triggered": false,
+        "value": null,
+        "threshold": "adequate == true",
+        "margin_to_failure": null
+      },
+      {
+        "code": "lineage_support",
+        "applicable": true,
+        "triggered": false,
+        "value": 1.0,
+        "threshold": 0.9,
+        "margin_to_failure": 0.09999999999999998
+      },
+      {
+        "code": "lineage_confounding",
+        "applicable": false,
+        "triggered": false,
+        "value": {
+          "lineage_attributable_share": null,
+          "ci95": [
+            null,
+            null
+          ],
+          "r2_lineage": -0.019362131304750667,
+          "r2_partition": 0.0,
+          "r2_joint": 0.00010048401446031933,
+          "shapley_lineage": -0.009630823645145174,
+          "shapley_partition": 0.009731307659605493,
+          "resolved_at_95ci": null,
+          "concordance_z_not_gated": null
+        },
+        "threshold": {
+          "lineage_attributable_share_below": 0.5
+        },
+        "margin_to_failure": null
+      },
+      {
+        "code": "phenotype_superiority",
+        "applicable": false,
+        "triggered": false,
+        "value": {
+          "rules_beating_partition": [],
+          "worst_ci95_low_minus_partition": null
+        },
+        "threshold": "no tested simple rule has bootstrap CI95 low > 0",
+        "margin_to_failure": null
+      },
+      {
+        "code": "continuum_discreteness",
+        "applicable": false,
+        "triggered": false,
+        "value": {
+          "status": null,
+          "p_value": null,
+          "tail_probability_ci95": null
+        },
+        "threshold": "status == ok and p_value < 0.05",
+        "margin_to_failure": null
+      }
+    ],
+    "scope_note": "Highest claim supported by diagnostics applicable to this run; archetype_candidate is not causal, clinical or cross-cohort biological confirmation."
+  }
+}
